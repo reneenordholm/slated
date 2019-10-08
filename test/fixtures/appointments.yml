@@ -1,0 +1,17 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  start_time: 2019-10-07 17:40:28
+  end_time: 2019-10-07 17:40:28
+  service_id: 1
+  concierge_id: 1
+  stylist_id: 1
+  client_id: 1
+
+two:
+  start_time: 2019-10-07 17:40:28
+  end_time: 2019-10-07 17:40:28
+  service_id: 1
+  concierge_id: 1
+  stylist_id: 1
+  client_id: 1

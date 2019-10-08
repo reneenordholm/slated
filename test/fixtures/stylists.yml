@@ -1,0 +1,11 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  avail_start: 2019-10-07 17:42:41
+  avail_end: 2019-10-07 17:42:41
+
+two:
+  name: MyString
+  avail_start: 2019-10-07 17:42:41
+  avail_end: 2019-10-07 17:42:41

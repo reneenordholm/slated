@@ -1,0 +1,2 @@
+class ConciergesController < ApplicationController
+end

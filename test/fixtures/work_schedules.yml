@@ -1,0 +1,13 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  day_of_week: 1
+  start_time: 2019-10-08 16:24:53
+  end_time: 2019-10-08 16:24:53
+  stylist_id: 1
+
+two:
+  day_of_week: 1
+  start_time: 2019-10-08 16:24:53
+  end_time: 2019-10-08 16:24:53
+  stylist_id: 1
