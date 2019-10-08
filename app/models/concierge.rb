@@ -3,4 +3,6 @@ class Concierge < ApplicationRecord
     has_many :stylists, through: :appointments
     has_many :clients, through: :appointments
     has_many :services, through: :appointments
+
+    has_secure_password
 end
