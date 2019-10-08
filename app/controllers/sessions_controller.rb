@@ -5,7 +5,7 @@ class SessionsController < ApplicationController
     def create
         @concierge = Concierge.find_by(username: params[:concierge][:username])
 
-        if !@concierge.nil? && @concierge.authenticate(params[:user][:password])
+        if !@concierge.nil? && @concierge.authenticate(params[:concierge][:password])
             session[:concierge_id] = @concierge.id
             redirect_to root_path
         else

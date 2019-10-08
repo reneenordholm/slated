@@ -1,0 +1,22 @@
+<h1>Please login</h1>
+
+<div>
+<%= form_with model: @concierge do |f| %>
+<div>
+    <%= f.label :username, "Username:" %>
+    <%= f.text_field :username %>
+</div>
+
+<div>
+    <%= f.label :password, "Password:" %>
+    <%= f.password_field :password %>
+</div>
+
+<div>
+    <%= f.submit "Log In" %>
+</div>
+
+<% end %>
+<div>
+
+<%= link_to "Home", root_path %>
