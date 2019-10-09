@@ -6,9 +6,14 @@ class ConciergesController < ApplicationController
 
     def create
         @concierge = Concierge.create(concierge_params)
-        session[:concierge_id] = @concierge.id
 
-        redirect_to appointments_path
+        if @concierge.save == true
+            session[:concierge_id] = @concierge.id
+        
+            redirect_to appointments_path
+        else
+            redirect_to signin_path
+        end
     end
     
     private
