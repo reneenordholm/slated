@@ -7,7 +7,7 @@
         Client: <%= a.client.name %><br>
         Service: <%= a.service.name %> (<%= a.service.description %>)<br>
         Stylist: <%= a.stylist.name %><br>
-        Scheduled for: <%= a.start_time %> - <%= a.end_time %>
+        Scheduled for: <%= a.start_time.strftime("%b %e, %l:%M %p") %> - <%= a.end_time.strftime("%b %e, %l:%M %p") %>
         </li>
     <% end %>
 </ul>
