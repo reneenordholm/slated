@@ -6,7 +6,7 @@
         <li>
         <%= link_to "Client:", clients_path %> <%= link_to a.client.name, client_path(a.client) %><br>
         <%= link_to "Service:", services_path %> <%= link_to a.service.name, service_path(a.service) %> (<%= a.service.description %>)<br>
-        Stylist: <%= link_to a.stylist.name, stylist_path(a.stylist) %><br>
+        <%= link_to "Stylist:", stylists_path %> <%= link_to a.stylist.name, stylist_path(a.stylist) %><br>
         Scheduled for: <%= a.start_time.strftime("%b %e, %l:%M %p") %> - <%= a.end_time.strftime("%b %e, %l:%M %p") %><br>
         <%= link_to "View Appointment Detail", appointment_path(a) %><br>
         </li>
