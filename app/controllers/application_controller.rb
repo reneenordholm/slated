@@ -1,4 +1,5 @@
 class ApplicationController < ActionController::Base
+    helper_method :current_concierge
 
     def logged_in?
         redirect_to '/' if !current_concierge
