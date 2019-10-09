@@ -1,0 +1,14 @@
+<h1><%= @stylist.name %>'s Stylist Appointment History</h1>
+
+<ul>
+    <% @stylist.appointments.each do |s| %>
+        <li>
+        Client: <%= s.client.name %><br>
+        Service: <%= s.service.name %> (<%= s.service.description %>)<br>
+        Scheduled for: <%= s.start_time.strftime("%b %e, %l:%M %p") %> - <%= s.end_time.strftime("%b %e, %l:%M %p") %><br>
+        <%= link_to "View Appointment Detail", appointment_path(s) %><br>
+        </li>
+    <% end %>
+</ul>
+
+<%= link_to "Appointment Index", appointments_path %> | <%= link_to 'Sign Out', signout_path, method: :post %>
