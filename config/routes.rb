@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   resources :stylists
   resources :concierges
   resources :appointments
+  resources :services
 
   root 'welcome#home'
 
