@@ -1,15 +1,15 @@
 class SessionsController < ApplicationController
     def new
+        logged_in?
     end
 
     def create
-        @concierge = Concierge.find_by(username: params[:concierge][:username])
+        @concierge = Concierge.find_by(username: params[:username])
    
-        if  @concierge.authenticate(params[:concierge][:password])
+        if !@concierge.nil? && @concierge.authenticate(params[:password])
             session[:concierge_id] = @concierge.id
             redirect_to root_path
         else
-            binding.pry
             redirect_to login_path
         end
     end
