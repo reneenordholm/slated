@@ -8,7 +8,7 @@ class SessionsController < ApplicationController
    
         if !@concierge.nil? && @concierge.authenticate(params[:password])
             session[:concierge_id] = @concierge.id
-            redirect_to root_path
+            redirect_to appointments_path
         else
             redirect_to login_path
         end

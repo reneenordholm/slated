@@ -8,7 +8,7 @@ class ConciergesController < ApplicationController
         @concierge = Concierge.create(concierge_params)
         session[:concierge_id] = @concierge.id
 
-        redirect_to root_path
+        redirect_to appointments_path
     end
     
     private

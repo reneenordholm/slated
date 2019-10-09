@@ -1,0 +1,13 @@
+<h1>Welcome to the Appointments Index</h1>
+
+<p>Here are all the appointments:</p>
+<ul>
+    <% @appointments.each do |a| %>
+        <li>
+        Client: <%= a.client.name %><br>
+        Service: <%= a.service.name %> (<%= a.service.description %>)<br>
+        Stylist: <%= a.stylist.name %><br>
+        Scheduled for: <%= a.start_time %> - <%= a.end_time %>
+        </li>
+    <% end %>
+</ul>
