@@ -1,15 +1,17 @@
-<h1>Welcome to the Appointments Index</h1>
+<h1>Appointments by Client</h1>
 
-<p>Here are all the appointments:</p>
-<ul>
-    <% @appointments.each do |a| %>
+<p>Here are all the appointments, sorted by client:</p>
+
+    <% @clients.each do |c| %>
+    Client: <%= c.name %><ul>
+        <% c.appointments.each do |a| %>
         <li>
-        <%= link_to "Client:", clients_path %> <%= link_to a.client.name, client_path(a.client) %><br>
         Service: <%= link_to a.service.name, service_path(a.service) %> (<%= a.service.description %>)<br>
         Stylist: <%= link_to a.stylist.name, stylist_path(a.stylist) %><br>
         Scheduled for: <%= a.start_time.strftime("%b %e, %l:%M %p") %> - <%= a.end_time.strftime("%b %e, %l:%M %p") %><br>
         <%= link_to "View Appointment Detail", appointment_path(a) %><br>
         </li>
+        <% end %>
+        </ul>
     <% end %>
-</ul>
 <%= link_to 'Sign Out', signout_path, method: :post %>
