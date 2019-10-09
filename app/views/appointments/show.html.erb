@@ -1,0 +1,8 @@
+<h1>Appointment Detail</h1>
+
+<p>
+        Client: <%= @appointment.client.name %><br>
+        Service: <%= @appointment.service.name %> (<%= @appointment.service.description %>)<br>
+        Stylist: <%= @appointment.stylist.name %><br>
+        Scheduled for: <%= @appointment.start_time.strftime("%b %e, %l:%M %p") %> - <%= @appointment.end_time.strftime("%b %e, %l:%M %p") %><br>
+</p>
