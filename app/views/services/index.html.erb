@@ -1,0 +1,18 @@
+<h1>Appointments by Service</h1>
+
+<p>Here are all the appointments, sorted by service:</p>
+
+    <% @services.each do |s| %>
+    Service: <%= s.name %><ul>
+        <% s.appointments.each do |a| %>
+        <li>
+        Service Description: <%= a.service.description %><br>
+        Client: <%= a.client.name %><br>
+        Stylist: <%= link_to a.stylist.name, stylist_path(a.stylist) %><br>
+        Scheduled for: <%= a.start_time.strftime("%b %e, %l:%M %p") %> - <%= a.end_time.strftime("%b %e, %l:%M %p") %><br>
+        <%= link_to "View Appointment Detail", appointment_path(a) %><br>
+        </li>
+        <% end %>
+        </ul>
+    <% end %>
+<%= link_to "Appointment Index", appointments_path %> | <%= link_to 'Sign Out', signout_path, method: :post %>
