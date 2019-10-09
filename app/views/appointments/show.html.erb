@@ -6,3 +6,5 @@
         Stylist: <%= @appointment.stylist.name %><br>
         Scheduled for: <%= @appointment.start_time.strftime("%b %e, %l:%M %p") %> - <%= @appointment.end_time.strftime("%b %e, %l:%M %p") %><br>
 </p>
+
+<%= link_to "Appointment Index", appointments_path %> | <%= link_to 'Sign Out', signout_path, method: :post %>
