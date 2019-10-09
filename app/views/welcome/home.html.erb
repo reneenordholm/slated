@@ -2,7 +2,7 @@
 
 <div>
     <% if current_concierge %>
-    <%= link_to 'Sign Out', signout_path, method: :post %>
+    <%= link_to "Appointment Index", appointments_path %> | <%= link_to 'Sign Out', signout_path, method: :post %>
     <% else %>
     <%= link_to "Sign Up", new_concierge_path %> | <%= link_to "Sign In", signin_path %>
     <% end %>
