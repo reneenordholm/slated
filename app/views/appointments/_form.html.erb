@@ -9,12 +9,9 @@
     <%= f.collection_select :service_id, Service.all, :id, :name %><br><Br>
 
     <% if !@stylist.nil? %>
-        <%= params.inspect %><br>
-        <%= @stylist %> <br>
         Appointment with <%= @stylist.name %><br><br>
         <%= hidden_field_tag  'appointment[stylist_id]', @stylist.id %>
     <% else %>
-            <%= params.inspect %>
         <%= f.label :stylist_id, "Select Stylist" %>
         <%= f.collection_select :stylist_id, Stylist.all, :id, :name %><br><Br>
     <% end %>
