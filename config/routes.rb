@@ -1,9 +1,14 @@
 Rails.application.routes.draw do
-  resources :clients
-  resources :stylists
-  resources :concierges
+  
+  resources :stylists do
+    resources :appointments
+  end
+  
   resources :appointments
+  resources :clients
+  resources :concierges
   resources :services
+  resources :stylists
 
   root 'welcome#home'
 
