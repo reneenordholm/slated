@@ -1,0 +1,6 @@
+<h1>Edit Appointment</h1>
+
+<%= render partial: "form", locals: { appointment: @appointment } %>
+
+<br><Br>
+<%= link_to "Back to Appointment", appointment_path(@appointment) %> | <%= link_to "Appointment Index", appointments_path %> | <%= link_to 'Sign Out', signout_path, method: :post %>

@@ -1,0 +1,18 @@
+<%= form_with model: @appointment do |f| %>
+    <%= f.label :start_time, "Appointment Start" %>
+    <%= f.datetime_select :start_time, { ampm: true, order: [:month, :day, :year] } %><br><Br>
+
+    <%= f.label :end_time, "Appointment End" %>
+    <%= f.datetime_select :end_time, { ampm: true, order: [:month, :day, :year] } %><br><Br>
+
+    <%= f.label :service_id, "Select Service" %>
+    <%= f.collection_select :service_id, Service.all, :id, :name %><br><Br>
+
+    <%= f.label :stylist_id, "Select Stylist" %>
+    <%= f.collection_select :stylist_id, Stylist.all, :id, :name %><br><Br>
+
+    <%= f.label :client_id, "Select Client" %>
+    <%= f.collection_select :client_id, Client.all, :id, :name %><br><Br>
+
+    <%= f.submit %>
+<% end %>
