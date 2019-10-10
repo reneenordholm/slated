@@ -7,4 +7,4 @@
         Scheduled for: <%= @appointment.start_time.strftime("%b %e, %l:%M %p") %> - <%= @appointment.end_time.strftime("%b %e, %l:%M %p") %><br>
 </p>
 
-<%= link_to "Edit Appointment", edit_appointment_path(@appointment) %> | <%= link_to "Appointment Index", appointments_path %> | <%= link_to 'Sign Out', signout_path, method: :post %>
+<%= link_to "Edit Appointment", edit_appointment_path(@appointment) %> | <%= link_to 'Delete Appointment', appointment_path(@appointment), method: :delete %> | <%= link_to "Appointment Index", appointments_path %> | <%= link_to 'Sign Out', signout_path, method: :post %>
