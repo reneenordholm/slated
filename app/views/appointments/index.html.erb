@@ -8,8 +8,9 @@
         <%= link_to "Service:", services_path %> <%= link_to a.service.name, service_path(a.service) %> (<%= a.service.description %>)<br>
         <%= link_to "Stylist:", stylists_path %> <%= link_to a.stylist.name, stylist_path(a.stylist) %><br>
         Scheduled for: <%= a.start_time.strftime("%b %e, %l:%M %p") %> - <%= a.end_time.strftime("%b %e, %l:%M %p") %><br>
-        <%= link_to "View Appointment Detail", appointment_path(a) %><br>
+        Booked By: <%= a.concierge.name %><br>
+        <%= link_to "View Appointment Detail", appointment_path(a) %><br><br>
         </li>
     <% end %>
 </ul>
-<%= link_to 'Sign Out', signout_path, method: :post %>
+<%= link_to 'Create Appointment', new_appointment_path %> | <%= link_to 'Sign Out', signout_path, method: :post %>

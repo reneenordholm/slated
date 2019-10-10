@@ -9,10 +9,9 @@ class ConciergesController < ApplicationController
 
         if @concierge.save == true
             session[:concierge_id] = @concierge.id
-        
             redirect_to appointments_path
         else
-            redirect_to signin_path
+            redirect_to signup_path
         end
     end
     
