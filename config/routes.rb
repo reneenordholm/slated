@@ -1,18 +1,17 @@
 Rails.application.routes.draw do
   
-  resources :stylists do
-    resources :appointments
+  resources :stylists, only: [:index, :show] do
+    resources :appointments, only: [:new]
   end
 
-  resources :clients do
-    resources :appointments
+  resources :clients, only: [:index, :show] do
+    resources :appointments, only: [:new]
   end
   
   resources :appointments
-  resources :clients
-  resources :concierges
-  resources :services
-  resources :stylists
+  resources :concierges, only: [:new, :create, :show]
+  resources :services, only: [:index, :show]
+
 
   root 'welcome#home'
 
