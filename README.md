@@ -1,24 +1,43 @@
-# README
+# SLATED
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+A salon-focused appointment application.  Manage salon schedule, create and update appointments by stylist, client, and service.
 
-Things you may want to cover:
+### Installing
 
-* Ruby version
+A step by step series of examples that tell you how to get a development env running:
 
-* System dependencies
+1. Fork and clone the repository.
 
-* Configuration
+2. Load the repository in your favorite development software.
 
-* Database creation
+3. Run 'bundle install' in your terminal to install any uninstalled dependencies.
 
-* Database initialization
+4. Run Rails Server in your terminal to create a local environment to run and play with the app.  
 
-* How to run the test suite
 
-* Services (job queues, cache servers, search engines, etc.)
+## Built With
 
-* Deployment instructions
+* [Rails](https://github.com/rails/rails) - Framework
+* [ActiveRecord](https://rubygems.org/gems/activerecord) - Database management
+* [sqlite3](https://rubygems.org/gems/sqlite3) - Database engine
+* [bcrypt](https://rubygems.org/gems/bcrypt) - Password hasher
 
-* ...
+
+## Contributing
+
+Bug reports and pull requests are welcome on GitHub at https://github.com/reneenordholm/slated. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](https://www.contributor-covenant.org/) code of conduct.
+
+## Authors
+
+* [Renee Nordholm](https://github.com/reneenordholm) - *App Creator*
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details
+
+## Acknowledgments
+
+* [Flatiron School](https://flatironschool.com/) - *Coding bootcamp*
+* [Micah Shute](https://github.com/micahshute) - *Flatiron instructor (thanks, dawg)*
+* [Billie Thompson of PurpleBooth](https://github.com/PurpleBooth) - *ReadMe Template*
+* You, because you're awesome. 
