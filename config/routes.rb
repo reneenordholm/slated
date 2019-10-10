@@ -3,6 +3,10 @@ Rails.application.routes.draw do
   resources :stylists do
     resources :appointments
   end
+
+  resources :clients do
+    resources :appointments
+  end
   
   resources :appointments
   resources :clients

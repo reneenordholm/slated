@@ -16,8 +16,13 @@
         <%= f.collection_select :stylist_id, Stylist.all, :id, :name %><br><Br>
     <% end %>
 
-    <%= f.label :client_id, "Select Client" %>
-    <%= f.collection_select :client_id, Client.all, :id, :name %><br><Br>
+    <% if !@client.nil? %>
+        Appointment for <%= @client.name %><br><br>
+        <%= hidden_field_tag  'appointment[client_id]', @client.id %>
+    <% else %>
+        <%= f.label :client_id, "Select Client" %>
+        <%= f.collection_select :client_id, Client.all, :id, :name %><br><Br>
+    <% end %>
 
     <%= f.submit %>
 <% end %>

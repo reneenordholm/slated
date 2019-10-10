@@ -11,4 +11,4 @@
     <% end %>
 </ul>
 
-<%= link_to "Appointment Index", appointments_path %> | <%= link_to 'Sign Out', signout_path, method: :post %>
+<%= link_to "Book an appointment for #{@client.name}", new_client_appointment_path(@client) %> | <%= link_to "Appointment Index", appointments_path %> | <%= link_to 'Sign Out', signout_path, method: :post %>
