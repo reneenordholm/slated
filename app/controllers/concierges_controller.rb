@@ -14,6 +14,10 @@ class ConciergesController < ApplicationController
             redirect_to signup_path
         end
     end
+
+    def show
+        @concierge = Concierge.find(params[:id])
+    end
     
     private
 

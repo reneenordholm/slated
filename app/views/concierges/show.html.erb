@@ -1,0 +1,14 @@
+<h1><%= @concierge.name %>'s Booking History</h1>
+
+<ul>
+    <% @concierge.appointments.each do |c| %>
+        <li>
+        Service: <%= c.service.name %> (<%= c.service.description %>)<br>
+        Stylist: <%= c.stylist.name %><br>
+        Scheduled for: <%= c.start_time.strftime("%b %e, %l:%M %p") %> - <%= c.end_time.strftime("%b %e, %l:%M %p") %><br>
+        <%= link_to "View Appointment Detail", appointment_path(c) %><br>
+        </li>
+    <% end %>
+</ul>
+
+<%= link_to "Appointment Index", appointments_path %> | <%= link_to 'Sign Out', signout_path, method: :post %>
