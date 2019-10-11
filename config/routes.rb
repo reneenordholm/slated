@@ -19,6 +19,8 @@ Rails.application.routes.draw do
   post '/signin', to: 'sessions#create'
   post '/signout', to: 'sessions#destroy'
 
+  get "/auth/:provider/callback", to: "sessions#google_auth"
+  get 'auth/failure', to: redirect('/')
 
 
 

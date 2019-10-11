@@ -1,5 +1,8 @@
 <h1>Welcome to the Appointments Index</h1>
 
+<p>Hello <%= current_concierge.name %></p>
+<%= params.inspect %>
+
 <p>Here are all the appointments:</p>
 <ul>
     <% @appointments.each do |a| %>

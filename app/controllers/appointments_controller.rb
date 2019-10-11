@@ -1,6 +1,7 @@
 class AppointmentsController < ApplicationController
 
     def index
+        logged_in?
         @appointments = Appointment.all
     end
 

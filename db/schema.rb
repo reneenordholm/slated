@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_10_08_212453) do
+ActiveRecord::Schema.define(version: 2019_10_11_201423) do
 
   create_table "appointments", force: :cascade do |t|
     t.datetime "start_time"
@@ -39,6 +39,8 @@ ActiveRecord::Schema.define(version: 2019_10_08_212453) do
     t.boolean "admin", default: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "google_token"
+    t.string "google_refresh_token"
   end
 
   create_table "services", force: :cascade do |t|

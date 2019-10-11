@@ -5,6 +5,10 @@ class ApplicationController < ActionController::Base
         redirect_to '/' if !current_concierge
     end
 
+    def log_in(concierge)
+        session[:concierge_id] = concierge.id
+    end
+
     private
 
     def current_concierge
