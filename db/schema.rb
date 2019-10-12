@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_10_11_201423) do
+ActiveRecord::Schema.define(version: 2019_10_12_003752) do
 
   create_table "appointments", force: :cascade do |t|
     t.datetime "start_time"
@@ -32,7 +32,6 @@ ActiveRecord::Schema.define(version: 2019_10_11_201423) do
   end
 
   create_table "concierges", force: :cascade do |t|
-    t.string "username"
     t.string "password_digest"
     t.string "email"
     t.string "name"
