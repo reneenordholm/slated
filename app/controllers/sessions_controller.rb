@@ -9,7 +9,7 @@ class SessionsController < ApplicationController
             session[:concierge_id] = @concierge.id
             redirect_to appointments_path
         else
-            redirect_to login_path
+            redirect_to signin_path
         end
     end
 
@@ -29,7 +29,7 @@ class SessionsController < ApplicationController
         log_in(concierge)
         flash[:success] = 'You are logged in'
       
-        redirect_to root_path
+        redirect_to appointments_path
     end
     
     def destroy

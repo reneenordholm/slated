@@ -11,7 +11,7 @@ class ConciergesController < ApplicationController
             log_in(@concierge)
             redirect_to appointments_path
         else
-            redirect_to signup_path
+            render new_concierge_path
         end
     end
 
