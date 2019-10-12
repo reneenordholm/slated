@@ -22,7 +22,7 @@ class ConciergesController < ApplicationController
     private
 
     def concierge_params
-        params.require(:concierge).permit(:username, :password, :email, :name, :admin)
+        params.require(:concierge).permit(:password, :email, :name, :admin)
     end
 
 end

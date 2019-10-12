@@ -13,10 +13,10 @@ class Concierge < ApplicationRecord
     def self.from_omniauth(auth)
         # Creates a new user only if it doesn't exist
         where(email: auth.info.email).first_or_initialize do |c|
-            c.name = auth.info.first_name
-            c.email = auth.info.email
-            c.username = auth.info.email
+          c.name = auth.info.first_name
+          c.password = Sysrandom.base64(32)
         end
-    end
+      end
 
 end
+
