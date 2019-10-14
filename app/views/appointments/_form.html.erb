@@ -21,7 +21,8 @@
         <%= hidden_field_tag  'appointment[client_id]', @client.id %>
     <% else %>
         <%= f.label :client_id, "Select Client" %>
-        <%= f.collection_select :client_id, Client.all, :id, :name %><br><Br>
+        <%= f.collection_select :client_id, Client.all, :id, :name %>
+        or <%= link_to "Add a Client", new_client_path %><br><Br>
     <% end %>
 
     <%= f.submit %>

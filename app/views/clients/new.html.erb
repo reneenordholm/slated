@@ -1,0 +1,6 @@
+<h1>Add a Client</h1>
+
+<%= render partial: "form", locals: { client: @client } %>
+
+<br><Br>
+<%= link_to "Appointment Index", appointments_path %> | <%= link_to 'Sign Out', signout_path, method: :post %>

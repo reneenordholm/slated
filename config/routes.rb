@@ -4,7 +4,7 @@ Rails.application.routes.draw do
     resources :appointments, only: [:new]
   end
 
-  resources :clients, only: [:index, :show] do
+  resources :clients, only: [:index, :show, :new, :create] do
     resources :appointments, only: [:new]
   end
   

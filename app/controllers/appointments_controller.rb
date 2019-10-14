@@ -13,8 +13,6 @@ class AppointmentsController < ApplicationController
             flash[:notice] = 'That appointment does not exist' 
             redirect_to appointments_path 
         end
-        
-
     end
 
     def new
