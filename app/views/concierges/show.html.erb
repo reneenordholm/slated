@@ -1,7 +1,7 @@
 <h1><%= @concierge.name %>'s Profile & Booking History</h1>
 
 <p>Email Address: <%= @concierge.email %><br>
-<p>Admin? <%= admin_view %></p>
+<p>Admin? <%= is_admin? %></p>
 
 <%= link_to 'Edit Concierge Account', edit_concierge_path(current_concierge) %>
 

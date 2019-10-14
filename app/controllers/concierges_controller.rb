@@ -1,5 +1,5 @@
 class ConciergesController < ApplicationController
-    helper_method :admin_view
+    helper_method :is_admin?
 
     def new
         @concierge = Concierge.new
@@ -22,18 +22,25 @@ class ConciergesController < ApplicationController
 
     def edit
         @concierge = Concierge.find_by(id: params[:id])
+        if current_concierge != @concierge || current_concierge.admin == true
+            flash[:error] = "You do not have permission to update another concierge's account"
+            redirect_to appointments_path 
+        end
     end
 
     def update
         concierge = Concierge.find_by(id: params[:id])
-        concierge.update(concierge_params)
+        if current_concierge != @concierge || current_concierge.admin == true
 
-        if concierge.save
-            flash[:notice] = 'Information updated'
-            redirect_to concierge_path(concierge)
-        else
-            flash[:error] = 'Information not updated.'
-            redirect_to edit_concierge_path(concierge)
+            concierge.update(concierge_params)
+
+            if concierge.save
+                flash[:notice] = 'Information updated'
+                redirect_to concierge_path(concierge)
+            else
+                flash[:error] = 'Information not updated.'
+                redirect_to edit_concierge_path(concierge)
+            end
         end
     end
     
@@ -43,9 +50,9 @@ class ConciergesController < ApplicationController
         params.require(:concierge).permit(:password, :email, :name, :admin)
     end
 
-    def admin_view
-        concierge = Concierge.find_by(id: params[:id])
-        if concierge.admin == true
+    def is_admin?
+        @concierge = Concierge.find_by(id: params[:id])
+        if @concierge.admin == true
           "Yes"
         else
           "No"
