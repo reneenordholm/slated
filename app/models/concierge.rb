@@ -11,12 +11,12 @@ class Concierge < ApplicationRecord
     validates :password, presence: true, length: { minimum: 5 }
 
     def self.from_omniauth(auth)
-        # Creates a new user only if it doesn't exist
-        where(email: auth.info.email).first_or_initialize do |c|
-          c.name = auth.info.first_name
-          c.password = Sysrandom.base64(32)
-        end
+      # Creates a new user only if it doesn't exist
+      where(email: auth.info.email).first_or_initialize do |c|
+        c.name = auth.info.first_name
+        c.password = Sysrandom.base64(32)
       end
+    end
 
 end
 

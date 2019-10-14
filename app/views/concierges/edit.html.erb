@@ -1,0 +1,6 @@
+<h1><%= @concierge.name %> Edit Profile</h1>
+
+<%= render partial: "form", locals: { concierge: @concierge } %>
+
+<br><Br>
+<%= link_to "Appointment Index", appointments_path %> | <%= link_to 'Sign Out', signout_path, method: :post %>

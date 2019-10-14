@@ -1,6 +1,11 @@
-<h1><%= @concierge.name %>'s Booking History</h1>
+<h1><%= @concierge.name %>'s Profile & Booking History</h1>
 
-<ul>
+<p>Email Address: <%= @concierge.email %><br>
+<p>Admin? <%= admin_view %></p>
+
+<%= link_to 'Edit Concierge Account', edit_concierge_path(current_concierge) %>
+
+<ul>Bookings:
     <% @concierge.appointments.each do |c| %>
         <li>
         Service: <%= c.service.name %> (<%= c.service.description %>)<br>
@@ -10,5 +15,7 @@
         </li>
     <% end %>
 </ul>
+
+
 
 <%= link_to "Appointment Index", appointments_path %> | <%= link_to 'Sign Out', signout_path, method: :post %>

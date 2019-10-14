@@ -1,31 +1,6 @@
 <h1>Create a New Concierge</h1>
 
-<% if @concierge.errors.any? %>
-  <div id="error">
-    <h3><%= @concierge.errors.count %> error(s) prohibited account creation:</h3>
- 
-    <ul>
-    <% @concierge.errors.full_messages.each do |msg| %>
-      <li><%= msg %></li>
-    <% end %>
-    </ul>
-  </div>
-<% end %>
+<%= render partial: "form", locals: { concierge: @concierge } %>
 
-<%= form_with model: @concierge, local: true do |f| %>
-    <%= f.label :name, "Name" %>
-    <%= f.text_field :name %><br><Br>
-
-    <%= f.label :email, "Email Address" %>
-    <%= f.text_field :email %><br><Br>
-
-    <%= f.label :admin, "Admin?" %>
-    <%= f.check_box :admin %><br><br>
-
-    <%= f.label :password, "Password" %>
-    <%= f.password_field :password %><br><Br>
-
-    <%= f.submit "Create Concierge" %>
-<% end %>
 <br><Br>
 <%= link_to "Home Page", root_path %> | <%= link_to "Sign In", signin_path %>
