@@ -1,12 +1,11 @@
 class AppointmentsController < ApplicationController
+    before_action :logged_in?
 
     def index
-        logged_in?
         @appointments = Appointment.all
     end
 
     def show
-        logged_in?
         @appointment = Appointment.find_by_id(params[:id])
 
         if @appointment.nil?
@@ -16,7 +15,6 @@ class AppointmentsController < ApplicationController
     end
 
     def new
-        logged_in?
         @stylist = Stylist.find_by(id: params[:stylist_id])
         @client = Client.find_by(id: params[:client_id])
         @appointments = current_concierge.appointments.select { |a| a.persisted? }

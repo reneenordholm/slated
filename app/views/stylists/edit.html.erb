@@ -1,0 +1,6 @@
+<h1>Edit a Stylist</h1>
+
+<%= render partial: "form", locals: { stylist: @stylist } %>
+
+<br><Br>
+<%= link_to "Back to Stylist", stylist_path(@stylist) %> | <%= link_to "Stylists Index", stylists_path %> | <%= link_to 'Sign Out', signout_path, method: :post %>

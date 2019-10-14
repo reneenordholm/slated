@@ -1,0 +1,18 @@
+<% if @stylist.errors.any? %>
+  <div id="error">
+    <h3><%= @stylist.errors.count %> error(s) prohibited account creation:</h3>
+ 
+    <ul>
+    <% @stylist.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+  </div>
+<% end %>
+
+<%= form_with model: @stylist, local: true do |f| %>
+    <%= f.label :name, "Stylist Name: " %>
+    <%= f.text_field :name %><br><Br>
+
+    <%= f.submit %>
+<% end %>
