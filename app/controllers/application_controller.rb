@@ -1,5 +1,5 @@
 class ApplicationController < ActionController::Base
-    helper_method :current_concierge, :log_in_error
+    helper_method :current_concierge
 
     def logged_in?
         log_in_error if !current_concierge

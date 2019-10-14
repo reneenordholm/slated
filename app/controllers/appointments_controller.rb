@@ -7,10 +7,18 @@ class AppointmentsController < ApplicationController
 
     def show
         logged_in?
-        @appointment = Appointment.find(params[:id])
+        @appointment = Appointment.find_by_id(params[:id])
+
+        if @appointment.nil?
+            flash[:notice] = 'That appointment does not exist' 
+            redirect_to appointments_path 
+        end
+        
+
     end
 
     def new
+        logged_in?
         @stylist = Stylist.find_by(id: params[:stylist_id])
         @client = Client.find_by(id: params[:client_id])
         @appointments = current_concierge.appointments.select { |a| a.persisted? }
