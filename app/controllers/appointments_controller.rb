@@ -6,6 +6,7 @@ class AppointmentsController < ApplicationController
     end
 
     def show
+        logged_in?
         @appointment = Appointment.find(params[:id])
     end
 

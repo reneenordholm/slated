@@ -9,12 +9,13 @@ Rails.application.routes.draw do
   end
   
   resources :appointments
-  resources :concierges, only: [:new, :create, :show]
+  resources :concierges, only: [:create, :show]
   resources :services, only: [:index, :show]
 
 
   root 'welcome#home'
 
+  get '/signup', to: 'concierges#new'
   get '/signin', to: 'sessions#new'
   post '/signin', to: 'sessions#create'
   post '/signout', to: 'sessions#destroy'

@@ -6,9 +6,9 @@ class Concierge < ApplicationRecord
 
     has_secure_password
 
-    validates :email, presence: true, format: { with: /[^@]+@[^\.]+\..+/, message: "must be in format xxxx@xxxx.xxx"}
+    validates :email, presence: true, uniqueness: true, format: { with: /[^@]+@[^\.]+\..+/, message: "must be in format xxxx@xxxx.xxx"}
     validates :name, presence: true
-    validates :password, presence: true, length: { minimum: 6}
+    validates :password, presence: true, length: { minimum: 5 }
 
     def self.from_omniauth(auth)
         # Creates a new user only if it doesn't exist

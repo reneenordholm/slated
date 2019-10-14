@@ -1,6 +1,18 @@
 <h1>Create a New Concierge</h1>
 
-<%= form_with model: @concierge do |f| %>
+<% if @concierge.errors.any? %>
+  <div id="error">
+    <h3><%= @concierge.errors.count %> error(s) prohibited account creation:</h3>
+ 
+    <ul>
+    <% @concierge.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+  </div>
+<% end %>
+
+<%= form_with model: @concierge, local: true do |f| %>
     <%= f.label :name, "Name" %>
     <%= f.text_field :name %><br><Br>
 
@@ -11,7 +23,7 @@
     <%= f.check_box :admin %><br><br>
 
     <%= f.label :password, "Password" %>
-    <%= f.text_field :password %><br><Br>
+    <%= f.password_field :password %><br><Br>
 
     <%= f.submit "Create Concierge" %>
 <% end %>

@@ -1,8 +1,13 @@
 class ApplicationController < ActionController::Base
-    helper_method :current_concierge
+    helper_method :current_concierge, :log_in_error
 
     def logged_in?
-        redirect_to '/' if !current_concierge
+        log_in_error if !current_concierge
+    end
+
+    def log_in_error
+        flash[:error] = 'Please log in for full access to website.'
+        redirect_to root_path
     end
 
     def log_in(concierge)

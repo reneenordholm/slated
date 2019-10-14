@@ -7,11 +7,11 @@ class ConciergesController < ApplicationController
     def create
         @concierge = Concierge.create(concierge_params)
 
-        if @concierge.save == true
+        if @concierge.save
             log_in(@concierge)
             redirect_to appointments_path
         else
-            render new_concierge_path
+            render :new
         end
     end
 

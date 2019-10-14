@@ -6,9 +6,11 @@ class SessionsController < ApplicationController
         @concierge = Concierge.find_by(email: params[:email])
    
         if !@concierge.nil? && @concierge.authenticate(params[:password])
-            session[:concierge_id] = @concierge.id
+            log_in(@concierge)
+            flash[:notice] = 'You are logged in'
             redirect_to appointments_path
         else
+            flash[:error] = 'Your username/password combo is incorrect.'
             redirect_to signin_path
         end
     end
@@ -27,13 +29,14 @@ class SessionsController < ApplicationController
         concierge.google_refresh_token = refresh_token if refresh_token.present?
         concierge.save
         log_in(concierge)
-        flash[:success] = 'You are logged in'
+        flash[:notice] = 'You are logged in'
       
         redirect_to appointments_path
     end
     
     def destroy
         session.clear
+        flash[:notice] = "You have successfully logged out"
         redirect_to root_path
     end
 
