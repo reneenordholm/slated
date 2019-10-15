@@ -1,2 +1,17 @@
-<h1>Welcome to Slated | Appointment Tracker</h1>
-
+  <header class="masthead">
+    <div class="container d-flex h-100 align-items-center">
+      <div class="mx-auto text-center">
+        <h1 class="mx-auto my-0 text-uppercase">Slated</h1>
+        <h2 class="text-white-50 mx-auto mt-2 mb-5">Manage your salon schedule, create and update appointments by stylist, client, and service.</h2>
+            <% if current_concierge %>
+                <%= link_to "Appointment Index", appointments_path, class: "btn btn-primary js-scroll-trigger" %> 
+                <%= link_to 'Create Appointment', new_appointment_path, class: "btn btn-primary js-scroll-trigger" %> 
+                <%= link_to 'Sign Out', signout_path, method: :post, class: "btn btn-primary js-scroll-trigger" %>
+            <% else %>
+                <%= link_to "Sign Up", signup_path, class: "btn btn-primary js-scroll-trigger" %> 
+                <%= link_to "Sign In", signin_path, class: "btn btn-primary js-scroll-trigger" %> 
+                <%= link_to "Google Sign In", "/auth/google_oauth2", class: "btn btn-primary js-scroll-trigger" %>
+            <% end %>
+      </div>
+    </div>
+  </header>
