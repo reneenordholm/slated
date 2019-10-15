@@ -5,7 +5,6 @@
         <h2 class="text-white-50 mx-auto mt-2 mb-5">Manage your salon schedule, create and update appointments by stylist, client, and service.</h2>
             <% if current_concierge %>
                 <%= link_to "Appointment Index", appointments_path, class: "btn btn-primary js-scroll-trigger" %> 
-                <%= link_to 'Create Appointment', new_appointment_path, class: "btn btn-primary js-scroll-trigger" %> 
                 <%= link_to 'Sign Out', signout_path, method: :post, class: "btn btn-primary js-scroll-trigger" %>
             <% else %>
                 <%= link_to "Sign Up", signup_path, class: "btn btn-primary js-scroll-trigger" %> 

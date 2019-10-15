@@ -1,8 +1,8 @@
 <%= form_with model: @appointment, local: true do |f| %>
-    <%= f.label :start_time, "Appointment Start" %>
+    <%= f.label :start_time, "Appointment Start" %><br>
     <%= f.datetime_select :start_time, { ampm: true, order: [:month, :day, :year] } %><br><Br>
 
-    <%= f.label :end_time, "Appointment End" %>
+    <%= f.label :end_time, "Appointment End" %><br>
     <%= f.datetime_select :end_time, { ampm: true, order: [:month, :day, :year] } %><br><Br>
 
     <%= f.label :service_id, "Select Service" %>

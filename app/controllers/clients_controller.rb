@@ -11,10 +11,12 @@ class ClientsController < ApplicationController
 
     def new
         @client = Client.new
+        @appointments = Appointment.all
         @stylist = Stylist.find_by(id: params[:stylist_id])
     end
 
     def create
+        @appointments = Appointment.all
         @client = Client.create(client_params)
 
         if @client.save

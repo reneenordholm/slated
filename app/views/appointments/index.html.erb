@@ -1,33 +1,42 @@
-<h1>Welcome to the Appointments Index</h1>
+  <!-- Projects Section -->
+  <section id="projects" class="projects-section bg-light">
+    <div class="container">
 
-<p>Hello <%= current_concierge.name %></p>
+      <!-- Featured Project Row -->
+      <div class="row align-items-center no-gutters mb-4 mb-lg-5">
+        <div class="col-xl-8 col-lg-7">
+          <%= week_calendar events: @appointments do |date, appointments| %>
+            <%= date.to_formatted_s(:short) %>
 
-<p>Here are all the appointments:</p>
+            <% appointments.each do |a| %>
+              <div>
+                  ______________________
+                  <%= a.start_time.strftime("%l:%M %p") %> - <%= a.end_time.strftime("%l:%M %p") %><br>
+                  Client: <%= link_to a.client.name, client_path(a.client) %><br>
+                  Service: <%= a.service.name %><br>
+                  Stylist: <%= link_to a.stylist.name, stylist_path(a.stylist) %><br>
+                  <%= link_to "Appointment Detail", appointment_path(a) %><br>
+              </div>
+            <% end %>
+          <% end %>
+        </div>
+        <div class="col-xl-4 col-lg-5">
+          <div class="featured-text text-center text-lg-left">
+            <h4>Create a New Appointment</h4>
+            <p class="text-black-50 mb-0">
+              <%= render partial: "form", locals: { appointment: @appointment } %>
+            </p>
+          </div>
+        </div>
+      </div>
 
-<%= month_calendar events: @appointments do |date, appointments| %>
-  <%= date.to_formatted_s(:short) %>
-
-  <% appointments.each do |a| %>
-    <div>
-      <%= link_to a.client.name, client_path(a.client) %>
     </div>
-  <% end %>
-<% end %>
+  </section>
 
-<%= week_calendar events: @appointments do |date, appointments| %>
-  <%= date.to_formatted_s(:short) %>
 
-  <% appointments.each do |a| %>
-    <div>
-        <%= link_to "Client:", clients_path %> <%= link_to a.client.name, client_path(a.client) %><br>
-        <%= link_to "Service:", services_path %> <%= link_to a.service.name, service_path(a.service) %> (<%= a.service.description %>)<br>
-        <%= link_to "Stylist:", stylists_path %> <%= link_to a.stylist.name, stylist_path(a.stylist) %><br>
-        Scheduled for: <%= a.start_time.strftime("%b %e, %l:%M %p") %> - <%= a.end_time.strftime("%b %e, %l:%M %p") %><br>
-        Booked By: <%= link_to a.concierge.name, concierge_path(a.concierge) %><br>
-        <%= link_to "View Appointment Detail", appointment_path(a) %><br><br>
-    </div>
-  <% end %>
-<% end %>
+
+
+
 
 
 
