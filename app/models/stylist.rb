@@ -5,5 +5,5 @@ class Stylist < ApplicationRecord
     has_many :services, through: :appointments
     has_many :concierges, through: :appointments
 
-    validates :name, presence: true
+    validates :name, presence: true, uniqueness: true
 end

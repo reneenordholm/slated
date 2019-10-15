@@ -12,9 +12,13 @@
   <body>
 
   <% if current_concierge %>
-    <%= link_to 'Create Appointment', new_appointment_path %> | <%= link_to 'Edit Concierge Account', edit_concierge_path(current_concierge) %> | <%= link_to 'Sign Out', signout_path, method: :post %>
+    <%= link_to "Appointment Index", appointments_path %> |
+    <%= link_to 'Create Appointment', new_appointment_path %> | 
+    <%= link_to 'Edit Concierge Account', edit_concierge_path(current_concierge) %> | 
+    <%= link_to 'Sign Out', signout_path, method: :post %>
         <% if current_concierge.admin == true %>
            | <%= link_to "Add a Stylist", new_stylist_path %>
+           | <%= link_to "Add a Service", new_service_path %>
         <% end %>
   <% else %>
     <%= link_to "Sign in with Google", "/auth/google_oauth2" %> | 

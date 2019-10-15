@@ -10,7 +10,7 @@ Rails.application.routes.draw do
   
   resources :appointments
   resources :concierges, only: [:create, :show, :edit, :update]
-  resources :services, only: [:index, :show]
+  resources :services, only: [:index, :show, :new, :create, :edit, :update]
 
 
   root 'welcome#home'
