@@ -17,6 +17,7 @@ class ApplicationController < ActionController::Base
     private
 
     def current_concierge
-        @current_concierge ||= Concierge.find(session[:concierge_id]) if session[:concierge_id]
+        #@current_concierge ||=
+         Concierge.find(session[:concierge_id]) if session[:concierge_id]
     end
 end

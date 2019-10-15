@@ -3,7 +3,9 @@
 <p>Email Address: <%= @concierge.email %><br>
 <p>Admin? <%= is_admin? %></p>
 
-<%= link_to 'Edit Concierge Account', edit_concierge_path(current_concierge) %>
+<% if current_concierge.admin == true || current_concierge == @concierge %>
+<%= link_to 'Edit Concierge Account', edit_concierge_path(@concierge) %>
+<% end %>
 
 <ul>Bookings:
     <% @concierge.appointments.each do |c| %>
@@ -15,7 +17,3 @@
         </li>
     <% end %>
 </ul>
-
-
-
-<%= link_to "Appointment Index", appointments_path %> | <%= link_to 'Sign Out', signout_path, method: :post %>

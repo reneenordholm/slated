@@ -22,7 +22,10 @@ class ConciergesController < ApplicationController
 
     def edit
         @concierge = Concierge.find_by(id: params[:id])
-        if current_concierge != @concierge || current_concierge.admin == true
+
+        if current_concierge.admin == true
+            
+        elsif current_concierge != @concierge
             flash[:error] = "You do not have permission to update another concierge's account"
             redirect_to appointments_path 
         end
