@@ -3,6 +3,22 @@
 <p>Hello <%= current_concierge.name %></p>
 
 <p>Here are all the appointments:</p>
+
+<%= month_calendar events: @appointments do |date, appointments| %>
+  <%= date %>
+
+  <% appointments.each do |a| %>
+    <div>
+      <%= link_to a.client.name, client_path(a.client) %>
+    </div>
+  <% end %>
+<% end %>
+
+<%= week_calendar do |date| %>
+  <%= date %>
+<% end %>
+
+
 <ul>
     <% @appointments.each do |a| %>
         <li>
