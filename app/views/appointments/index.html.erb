@@ -5,7 +5,7 @@
 <p>Here are all the appointments:</p>
 
 <%= month_calendar events: @appointments do |date, appointments| %>
-  <%= date %>
+  <%= date.to_formatted_s(:short) %>
 
   <% appointments.each do |a| %>
     <div>
@@ -14,20 +14,24 @@
   <% end %>
 <% end %>
 
-<%= week_calendar do |date| %>
-  <%= date %>
-<% end %>
+<%= week_calendar events: @appointments do |date, appointments| %>
+  <%= date.to_formatted_s(:short) %>
 
-
-<ul>
-    <% @appointments.each do |a| %>
-        <li>
+  <% appointments.each do |a| %>
+    <div>
         <%= link_to "Client:", clients_path %> <%= link_to a.client.name, client_path(a.client) %><br>
         <%= link_to "Service:", services_path %> <%= link_to a.service.name, service_path(a.service) %> (<%= a.service.description %>)<br>
         <%= link_to "Stylist:", stylists_path %> <%= link_to a.stylist.name, stylist_path(a.stylist) %><br>
         Scheduled for: <%= a.start_time.strftime("%b %e, %l:%M %p") %> - <%= a.end_time.strftime("%b %e, %l:%M %p") %><br>
         Booked By: <%= link_to a.concierge.name, concierge_path(a.concierge) %><br>
         <%= link_to "View Appointment Detail", appointment_path(a) %><br><br>
-        </li>
-    <% end %>
-</ul>
+    </div>
+  <% end %>
+<% end %>
+
+
+
+
+
+
+
