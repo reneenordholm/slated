@@ -1,6 +1,6 @@
 # SLATED
 
-A salon-focused appointment application.  Manage salon schedule, create and update appointments by stylist, client, and service.
+A salon-focused appointment and calendar application.  Manage salon schedule, create and update appointments by stylist, client, and service.
 
 ### Installing
 
