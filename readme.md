@@ -21,6 +21,7 @@ A step by step series of examples that tell you how to get a development env run
 * [ActiveRecord](https://rubygems.org/gems/activerecord) - Database management
 * [sqlite3](https://rubygems.org/gems/sqlite3) - Database engine
 * [bcrypt](https://rubygems.org/gems/bcrypt) - Password hasher
+* [Simple Calendar](https://github.com/excid3/simple_calendar) - Renders calendar
 
 
 ## Contributing
