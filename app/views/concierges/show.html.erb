@@ -1,19 +1,41 @@
-<h1><%= @concierge.name %>'s Profile & Booking History</h1>
+<h1></h1>
 
-<p>Email Address: <%= @concierge.email %><br>
-<p>Admin? <%= is_admin? %></p>
 
-<% if current_concierge.admin == true || current_concierge == @concierge %>
-<%= link_to 'Edit Concierge Account', edit_concierge_path(@concierge) %>
-<% end %>
 
-<ul>Bookings:
-    <% @concierge.appointments.each do |c| %>
-        <li>
-        Service: <%= c.service.name %> (<%= c.service.description %>)<br>
-        Stylist: <%= c.stylist.name %><br>
-        Scheduled for: <%= c.start_time.strftime("%b %e, %l:%M %p") %> - <%= c.end_time.strftime("%b %e, %l:%M %p") %><br>
-        <%= link_to "View Appointment Detail", appointment_path(c) %><br>
-        </li>
-    <% end %>
-</ul>
+
+
+
+
+<h1></h1>
+
+
+
+<!-- Projects Section -->
+  <section id="projects" class="projects-section bg-light">
+      <div class="container">
+      <div class="row">
+            <div class="col-md-10 col-lg-8 mx-auto text-center">
+          <div class="featured-text text-center text-lg-left">
+            <h4><%= @concierge.name %>'s Profile & Booking History</h4>
+            <p class="text-black-50 mb-0">
+            <p>Email Address: <%= @concierge.email %><br>
+            <p>Admin? <%= is_admin? %></p>
+            <ul>Bookings:
+                <% @concierge.appointments.each do |c| %>
+                    <li>
+                    Service: <%= c.service.name %> (<%= c.service.description %>)<br>
+                    Stylist: <%= c.stylist.name %><br>
+                    Scheduled for: <%= c.start_time.strftime("%b %e, %l:%M %p") %> - <%= c.end_time.strftime("%b %e, %l:%M %p") %><br>
+                    <%= link_to "View Appointment Detail", appointment_path(c) %><br>
+                    </li>
+                <% end %>
+            </ul>
+
+            <% if current_concierge.admin == true || current_concierge == @concierge %>
+            <%= link_to 'Edit Concierge Account', edit_concierge_path(@concierge) %>
+            <% end %>
+            </p>
+          </div>
+        </div>
+        </div>
+  </section>

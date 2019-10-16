@@ -1,17 +1,27 @@
-<h1>Appointments by Client</h1>
 
-<p>Here are all the appointments, sorted by client:</p>
 
-    <% @clients.each do |c| %>
-    Client: <%= c.name %><ul>
-        <% c.appointments.each do |a| %>
-        <li>
-        Service: <%= link_to a.service.name, service_path(a.service) %> (<%= a.service.description %>)<br>
-        Stylist: <%= link_to a.stylist.name, stylist_path(a.stylist) %><br>
-        Scheduled for: <%= a.start_time.strftime("%b %e, %l:%M %p") %> - <%= a.end_time.strftime("%b %e, %l:%M %p") %><br>
-        <%= link_to "View Appointment Detail", appointment_path(a) %><br>
-        </li>
-        <% end %>
-        </ul>
-    <% end %>
-<%= link_to "Appointment Index", appointments_path %> | <%= link_to 'Sign Out', signout_path, method: :post %>
+<!-- Projects Section -->
+  <section id="projects" class="projects-section bg-light">
+      <div class="container">
+      <div class="row">
+            <div class="col-md-10 col-lg-8 mx-auto text-center">
+          <div class="featured-text text-center text-lg-left">
+            <h4>Appointments by Client</h4>
+            <p class="text-black-50 mb-0">
+                <% @clients.each do |c| %>
+                Client: <%= c.name %><ul>
+                    <% c.appointments.each do |a| %>
+                    <li>
+                    Service: <%= link_to a.service.name, service_path(a.service) %> (<%= a.service.description %>)<br>
+                    Stylist: <%= link_to a.stylist.name, stylist_path(a.stylist) %><br>
+                    Scheduled for: <%= a.start_time.strftime("%b %e, %l:%M %p") %> - <%= a.end_time.strftime("%b %e, %l:%M %p") %><br>
+                    <%= link_to "View Appointment Detail", appointment_path(a) %><br>
+                    </li>
+                    <% end %>
+                    </ul>
+                <% end %>
+            </p>
+          </div>
+        </div>
+        </div>
+  </section>
