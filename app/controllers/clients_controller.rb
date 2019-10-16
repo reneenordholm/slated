@@ -3,10 +3,12 @@ class ClientsController < ApplicationController
 
     def index 
         @clients = Client.all
+        @appointments = Appointment.all
     end
     
     def show
         @client = Client.find(params[:id])
+        @appointments = Appointment.all
     end
 
     def new

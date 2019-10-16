@@ -5,6 +5,9 @@ class AppointmentsController < ApplicationController
         if params[:stylist_id]
             @stylist = Stylist.find(params[:stylist_id])
             @appointments = @stylist.appointments
+        elsif params[:client_id]
+            @client = Client.find(params[:client_id])
+            @appointments = @client.appointments
         else
             @appointments = Appointment.all
         end
