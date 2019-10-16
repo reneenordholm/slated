@@ -1,6 +1,18 @@
-<h1>Edit a Stylist</h1>
+    <!-- Projects Section -->
+  <section id="projects" class="projects-section bg-light">
+      <div class="container">
+      <div class="row">
+            <div class="col-md-10 col-lg-8 mx-auto text-center">
+          <div class="featured-text text-center text-lg-left">
+            <h4>Edit a Stylist</h4>
+            <p class="text-black-50 mb-0">
+                <%= render partial: "form", locals: { stylist: @stylist } %>
+                <br><Br>
+                <%= link_to "Back to Stylist", stylist_path(@stylist) %>
+            </p>
+          </div>
+        </div>
+    </div>
 
-<%= render partial: "form", locals: { stylist: @stylist } %>
-
-<br><Br>
-<%= link_to "Back to Stylist", stylist_path(@stylist) %> | <%= link_to "Stylists Index", stylists_path %> | <%= link_to 'Sign Out', signout_path, method: :post %>
+    </div>
+  </section>

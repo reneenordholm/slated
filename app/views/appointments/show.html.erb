@@ -1,10 +1,55 @@
-<h1>Appointment Detail</h1>
+<h1></h1>
 
-<p>
-        Client: <%= @appointment.client.name %><br>
-        Service: <%= @appointment.service.name %> (<%= @appointment.service.description %>)<br>
-        Stylist: <%= @appointment.stylist.name %><br>
-        Scheduled for: <%= @appointment.start_time.strftime("%b %e, %l:%M %p") %> - <%= @appointment.end_time.strftime("%b %e, %l:%M %p") %><br>
-</p>
 
-<%= link_to "Edit Appointment", edit_appointment_path(@appointment) %> | <%= link_to 'Delete Appointment', appointment_path(@appointment), method: :delete %> | <%= link_to "Appointment Index", appointments_path %> | <%= link_to 'Sign Out', signout_path, method: :post %>
+
+  <!-- Projects Section -->
+  <section id="projects" class="projects-section bg-light">
+    <div class="container">
+
+      <!-- Featured Project Row -->
+      <div class="row align-items-center no-gutters mb-4 mb-lg-5">
+        <div class="col-xl-8 col-lg-7">
+          <%= week_calendar events: @appointments do |date, appointments| %>
+            <%= date.to_formatted_s(:short) %>
+
+            <% appointments.each do |a| %>
+              <div>
+                  ______________________
+                  <%= a.start_time.strftime("%l:%M %p") %> - <%= a.end_time.strftime("%l:%M %p") %><br>
+                  Client: <%= link_to a.client.name, client_path(a.client) %><br>
+                  Service: <%= a.service.name %><br>
+                  Stylist: <%= link_to a.stylist.name, stylist_path(a.stylist) %><br>
+                  <%= link_to "Appointment Detail", appointment_path(a) %><br>
+              </div>
+            <% end %>
+          <% end %>
+        </div>
+        <div class="col-xl-4 col-lg-5">
+          <div class="featured-text text-center text-lg-left">
+            <h4>Appointment Detail</h4>
+            <p class="text-black-50 mb-0">
+                Client: <%= @appointment.client.name %><br>
+                Service: <%= @appointment.service.name %> (<%= @appointment.service.description %>)<br>
+                Stylist: <%= @appointment.stylist.name %><br>
+                Scheduled for: <%= @appointment.start_time.strftime("%b %e, %l:%M %p") %> - <%= @appointment.end_time.strftime("%b %e, %l:%M %p") %><br>
+                <%= link_to "Edit Appointment", edit_appointment_path(@appointment) %> | 
+                <%= link_to 'Delete Appointment', appointment_path(@appointment), method: :delete %>
+            </p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+
+
+
+
+
+
+
+
+
+
+

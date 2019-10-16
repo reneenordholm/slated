@@ -1,14 +1,32 @@
-<h1><%= @stylist.name %>'s Stylist Appointment History</h1>
+<h1></h1>
 
-<ul>
-    <% @stylist.appointments.each do |s| %>
-        <li>
-        Client: <%= s.client.name %><br>
-        Service: <%= s.service.name %> (<%= s.service.description %>)<br>
-        Scheduled for: <%= s.start_time.strftime("%b %e, %l:%M %p") %> - <%= s.end_time.strftime("%b %e, %l:%M %p") %><br>
-        <%= link_to "View Appointment Detail", appointment_path(s) %><br>
-        </li>
-    <% end %>
-</ul>
 
-<%= link_to "Book an appointment with #{@stylist.name}", new_stylist_appointment_path(@stylist) %> | <%= link_to "Appointment Index", appointments_path %> | <%= link_to 'Sign Out', signout_path, method: :post %>
+
+<!-- Projects Section -->
+  <section id="projects" class="projects-section bg-light">
+      <div class="container">
+      <div class="row">
+            <div class="col-md-10 col-lg-8 mx-auto text-center">
+          <div class="featured-text text-center text-lg-left">
+            <h4><%= @stylist.name %>'s Stylist Appointment History</h4>
+            <p class="text-black-50 mb-0">
+                <ul>
+                <% @stylist.appointments.each do |s| %>
+                    <li>
+                    Client: <%= s.client.name %><br>
+                    Service: <%= s.service.name %> (<%= s.service.description %>)<br>
+                    Scheduled for: <%= s.start_time.strftime("%b %e, %l:%M %p") %> - <%= s.end_time.strftime("%b %e, %l:%M %p") %><br>
+                    <%= link_to "View Appointment Detail", appointment_path(s) %><br>
+                    </li>
+                <% end %>
+                </ul>
+
+                <%= link_to "Book an appointment with #{@stylist.name}", new_stylist_appointment_path(@stylist) %>
+                <% if current_concierge.admin %>
+                | <%= link_to "Edit #{@stylist.name}", edit_stylist_path(@stylist) %>
+                <% end %>
+            </p>
+          </div>
+        </div>
+        </div>
+  </section>

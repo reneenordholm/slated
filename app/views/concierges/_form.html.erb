@@ -17,7 +17,7 @@
     <%= f.label :email, "Email Address" %>
     <%= f.text_field :email %><br><Br>
 
-    <% if current_concierge.admin == true %>
+    <% if !current_concierge.nil? && current_concierge.admin == true %>
         <%= f.label :admin, "Admin?" %>
         <%= f.check_box :admin %><br><br>
     <% end %>
@@ -26,4 +26,6 @@
     <%= f.password_field :password %><br><Br>
 
     <%= f.submit %>
-<% end %>
+<% end %><br>
+
+<%= link_to "Home Page", root_path %> | <%= link_to "Sign in", signin_path %>

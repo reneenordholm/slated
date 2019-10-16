@@ -1,23 +1,28 @@
-<h1>Please login</h1>
+  <!-- Projects Section -->
+  <section id="projects" class="projects-section bg-light">
+      <div class="container">
+      <div class="row">
+            <div class="col-md-10 col-lg-8 mx-auto text-center">
+          <div class="featured-text text-center text-lg-left">
+            <h4>Please login</h4>
+            <p class="text-black-50 mb-0">
+              <%= form_with model: @concierge do |f| %>
+                <%= f.label :email, "Email:" %>
+                <%= f.text_field :email %><br><br>
 
-<div>
-<%= form_with model: @concierge do |f| %>
-<div>
-    <%= f.label :email, "Email:" %>
-    <%= f.text_field :email %>
-</div>
+                <%= f.label :password, "Password:" %>
+                <%= f.password_field :password %><br><br>
 
-<div>
-    <%= f.label :password, "Password:" %>
-    <%= f.password_field :password %>
-</div>
+                <%= f.submit "Log In" %>
 
-<div>
-    <%= f.submit "Log In" %>
-</div>
+            <% end %><br>
+            <%= link_to "Home Page", root_path %> | <%= link_to "Sign up", signup_path %>
+            </p>
+          </div>
+        </div>
+    </div>
 
-<% end %>
-<div>
+    </div>
+  </section>
 
-<br><Br>
-<%= link_to "Home Page", root_path %> | <%= link_to "Sign up", signup_path %>
+
