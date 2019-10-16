@@ -1,11 +1,11 @@
 Rails.application.routes.draw do
   
   resources :stylists, only: [:index, :show, :new, :create, :edit, :update] do
-    resources :appointments, only: [:new]
+    resources :appointments, only: [:new, :show]
   end
 
   resources :clients, only: [:index, :show, :new, :create, :edit, :update] do
-    resources :appointments, only: [:new]
+    resources :appointments, only: [:new, :show]
   end
   
   resources :appointments

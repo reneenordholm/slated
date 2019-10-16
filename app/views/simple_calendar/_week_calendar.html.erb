@@ -1,13 +1,17 @@
 <div class="simple-calendar">
   <div class="calendar-heading">
-    Hello <%= current_concierge.name %> | Welcome to Your Appointment Dashoard | 
+    <center>Hello <%= current_concierge.name %> | Welcome to Your Appointment Dashoard<br>
+    <%= link_to "View All Appointments", appointments_path %> | 
+    Sort by: <%= link_to "Client", clients_path %> | 
+    <%= link_to "Stylist", stylists_path %> | 
+    <%= link_to "Service", services_path %> <br>
     <%= link_to t('simple_calendar.previous', default: 'Previous'), calendar.url_for_previous_view %>
     <% if calendar.number_of_weeks == 1 %>
       <span class="calendar-title">Week <%= calendar.week_number %></span>
     <%else%>
       <span class="calendar-title">Week <%= calendar.week_number %> - <%= calendar.end_week %></span>
     <%end%>
-      <%= link_to t('simple_calendar.next', default: 'Next'), calendar.url_for_next_view %>
+      <%= link_to t('simple_calendar.next', default: 'Next'), calendar.url_for_next_view %></center>
   </div>
 
   <table class="table table-striped">
