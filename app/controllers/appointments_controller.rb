@@ -2,7 +2,12 @@ class AppointmentsController < ApplicationController
     before_action :logged_in?
 
     def index
-        @appointments = Appointment.all
+        if params[:stylist_id]
+            @stylist = Stylist.find(params[:stylist_id])
+            @appointments = @stylist.appointments
+        else
+            @appointments = Appointment.all
+        end
     end
 
     def show

@@ -14,15 +14,21 @@
                   <%= a.start_time.strftime("%l:%M %p") %> - <%= a.end_time.strftime("%l:%M %p") %><br>
                   Client: <%= link_to a.client.name, client_path(a.client) %><br>
                   Service: <%= a.service.name %><br>
-                  Stylist: <%= link_to a.stylist.name, stylist_path(a.stylist) %><br>
-                  <%= link_to "Appointment Detail", appointment_path(a) %><br>
+                  Stylist: <%= link_to a.stylist.name, stylist_appointments_path(a.stylist) %><br>
+                  <%= link_to "Appointment Detail", stylist_appointment_path(a.stylist_id, a) %><br>
               </div>
             <% end %>
           <% end %>
         </div>
         <div class="col-xl-4 col-lg-5">
           <div class="featured-text text-center text-lg-left">
-            <h4>Create a New Appointment</h4>
+            <% if !@stylist.nil? %>
+              <h4>Book an Appointment with <%= @stylist.name %></h4>
+            <% elsif !@client.nil? %>
+              <h4>New Appointment for <%= @client.name %></h4>
+            <% else %>    
+              <h4>Create a New Appointment</h4>
+            <% end %>
             <p class="text-black-50 mb-0">
               <%= render partial: "form", locals: { appointment: @appointment } %>
             </p>

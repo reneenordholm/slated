@@ -3,11 +3,13 @@ class StylistsController < ApplicationController
 
     def index
         @stylists = Stylist.all
+        @appointments = Appointment.all
     end
 
 
     def show
         @stylist = Stylist.find(params[:id])
+        @appointments = Appointment.all
     end
 
     def new

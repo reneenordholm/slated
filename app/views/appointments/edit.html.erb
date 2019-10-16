@@ -16,7 +16,7 @@
                   Client: <%= link_to a.client.name, client_path(a.client) %><br>
                   Service: <%= a.service.name %><br>
                   Stylist: <%= link_to a.stylist.name, stylist_path(a.stylist) %><br>
-                  <%= link_to "Appointment Detail", appointment_path(a) %><br>
+                  <%= link_to "Appointment Detail", stylist_appointment_path(a.stylist_id, a) %><br>
               </div>
             <% end %>
           <% end %>

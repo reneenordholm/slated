@@ -1,0 +1,91 @@
+
+<!-- Projects Section -->
+  <section id="projects" class="projects-section bg-light">
+      <div class="container">
+      <div class="row">
+            <div class="col-md-10 col-lg-8 mx-auto text-center">
+          <div class="featured-text text-center text-lg-left">
+            <h4><%= @stylist.name %>'s Stylist Appointment History</h4>
+            <p class="text-black-50 mb-0">
+                <ul>
+                <% @stylist.appointments.each do |s| %>
+                    <li>
+                    Client: <%= s.client.name %><br>
+                    Service: <%= s.service.name %> (<%= s.service.description %>)<br>
+                    Scheduled for: <%= s.start_time.strftime("%b %e, %l:%M %p") %> - <%= s.end_time.strftime("%b %e, %l:%M %p") %><br>
+                    <%= link_to "View Appointment Detail", appointment_path(s) %><br>
+                    </li>
+                <% end %>
+                </ul>
+
+                <%= link_to "Book an appointment with #{@stylist.name}", new_stylist_appointment_path(@stylist) %>
+                <% if current_concierge.admin %>
+                | <%= link_to "Edit #{@stylist.name}", edit_stylist_path(@stylist) %>
+                <% end %>
+            </p>
+          </div>
+        </div>
+        </div>
+  </section>
+
+  <!-- Projects Section -->
+  <section id="projects" class="projects-section bg-light">
+    <div class="container">
+
+      <!-- Featured Project Row -->
+      <div class="row align-items-center no-gutters mb-4 mb-lg-5">
+        <div class="col-xl-8 col-lg-7">
+          <%= week_calendar events: @stylist.appointments do |date, appointments| %>
+            <%= date.to_formatted_s(:short) %>
+
+            <% appointments.each do |a| %>
+              <div>
+                  ______________________
+                  <%= a.start_time.strftime("%l:%M %p") %> - <%= a.end_time.strftime("%l:%M %p") %><br>
+                                Client: <%= a.client.name %><br>
+                                Service: <%= a.service.name %> (<%= a.service.description %>)<br>
+                  <%= link_to "Appointment Detail", appointment_path(a) %><br>
+              </div>
+            <% end %>
+          <% end %>
+        </div>
+        <div class="col-xl-4 col-lg-5">
+          <div class="featured-text text-center text-lg-left">
+            <h4><%= @stylist.name %>'s Stylist Appointment History</h4>
+            <p class="text-black-50 mb-0">
+             <%= link_to "Book an appointment with #{@stylist.name}", new_stylist_appointment_path(@stylist) %>
+                <% if current_concierge.admin %>
+                | <%= link_to "Edit #{@stylist.name}", edit_stylist_path(@stylist) %>
+                <% end %>
+            </p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
