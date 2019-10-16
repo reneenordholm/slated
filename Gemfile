@@ -30,6 +30,7 @@ gem 'sysrandom'
 gem "simple_calendar", "~> 2.0"
 gem 'jquery-rails'
 gem 'bootstrap-sass'
+gem 'omniauth-rails_csrf_protection', '~> 0.1'
 
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'

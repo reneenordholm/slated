@@ -9,7 +9,7 @@
             <% else %>
                 <%= link_to "Sign Up", signup_path, class: "btn btn-primary js-scroll-trigger" %> 
                 <%= link_to "Sign In", signin_path, class: "btn btn-primary js-scroll-trigger" %> 
-                <%= link_to "Google Sign In", "/auth/google_oauth2", class: "btn btn-primary js-scroll-trigger" %>
+                <%= link_to "Google Sign In", "/auth/google_oauth2", method: :post, class: "btn btn-primary js-scroll-trigger" %>
             <% end %>
       </div>
     </div>
