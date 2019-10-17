@@ -6,7 +6,7 @@
       <!-- Featured Project Row -->
       <div class="row align-items-center no-gutters mb-4 mb-lg-5">
         <div class="col-xl-8 col-lg-7">
-          <%= week_calendar events: @appointments do |date, appointments| %>
+          <%= week_calendar appointments: @appointments do |date, appointments| %>
             <%= date.to_formatted_s(:short) %>
 
             <% appointments.each do |a| %>

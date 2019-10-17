@@ -10,6 +10,7 @@ class AppointmentsController < ApplicationController
             @appointments = @client.appointments
         else
             @appointments = Appointment.all
+            @appointment = current_concierge.appointments.build
         end
     end
 
@@ -30,15 +31,15 @@ class AppointmentsController < ApplicationController
     end
 
     def create
-        appointment = Appointment.new(appointment_params.merge(concierge_id: current_concierge.id))
+        @appointment = Appointment.new(appointment_params.merge(concierge_id: current_concierge.id))
         
-        if appointment.valid?
-          appointment.save
-          redirect_to appointments_path
-        else 
-          appointment.concierge = nil
-          appointments = current_concierge.appointments.select { |a| a.persisted? }
-          render :new
+        if @appointment.valid?
+            @appointment.save
+            redirect_to appointments_path
+        else
+            # @appointment.concierge = nil
+            @appointments = current_concierge.appointments.select { |a| a.persisted? }
+            render :new
         end
     end
 
