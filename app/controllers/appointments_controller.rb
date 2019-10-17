@@ -33,12 +33,13 @@ class AppointmentsController < ApplicationController
     def create
         @appointment = Appointment.new(appointment_params.merge(concierge_id: current_concierge.id))
         
-        if @appointment.valid?
-            @appointment.save
-            redirect_to appointments_path
+        if @appointment.save
+            flash[:notice] = 'Appointment created.'
+            redirect_to appointment_path(@appointment)
         else
             # @appointment.concierge = nil
             @appointments = current_concierge.appointments.select { |a| a.persisted? }
+            flash[:notice] = 'Appointment cannot be created.'
             render :new
         end
     end
@@ -53,8 +54,10 @@ class AppointmentsController < ApplicationController
         appointment.update(appointment_params)
 
         if appointment.save
+            flash[:notice] = 'Appointment updated.'
             redirect_to appointment_path(appointment)
         else
+            flash[:notice] = 'Appointment cannot be updated.'
             redirect_to edit_appointment_path(appointment)
         end
     end
@@ -62,6 +65,7 @@ class AppointmentsController < ApplicationController
     def destroy 
         @appointment = Appointment.find_by(id: params[:id])
         @appointment.destroy 
+        flash[:notice] = 'Appointment deleted.'
         redirect_to appointments_path
     end
 

@@ -13,9 +13,9 @@
               <div>
                   ______________________
                   <%= a.start_time.strftime("%l:%M %p") %> - <%= a.end_time.strftime("%l:%M %p") %><br>
-                  Client: <%= link_to a.client.name, client_path(a.client) %><br>
+                  Client: <%= a.client.name %><br>
                   Service: <%= a.service.name %><br>
-                  Stylist: <%= link_to a.stylist.name, stylist_appointments_path(a.stylist) %><br>
+                  Stylist: <%= a.stylist.name %><br>
                   <%= link_to "Appointment Detail", stylist_appointment_path(a.stylist_id, a) %><br>
               </div>
             <% end %>
@@ -29,7 +29,7 @@
                 Service: <%= @appointment.service.name %> (<%= @appointment.service.description %>)<br>
                 Stylist: <%= @appointment.stylist.name %><br>
                 Scheduled for: <%= @appointment.start_time.strftime("%b %e, %l:%M %p") %> - <%= @appointment.end_time.strftime("%b %e, %l:%M %p") %><br>
-                <%= link_to "Edit Appointment", edit_appointment_path(@appointment) %> | 
+                <%= link_to "Edit Appointment", edit_stylist_appointment_path(@appointment) %> | 
                 <%= link_to 'Delete Appointment', appointment_path(@appointment), method: :delete %>
             </p>
           </div>

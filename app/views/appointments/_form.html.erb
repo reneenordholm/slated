@@ -1,4 +1,4 @@
-<% if @appointment.errors.any? %>
+<% if !@appointment.nil? && @appointment.errors.any? %>
   <div id="error">
     <h3><%= @appointment.errors.count %> error(s) prohibited account creation:</h3>
  

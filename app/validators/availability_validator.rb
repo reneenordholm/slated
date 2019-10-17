@@ -1,6 +1,5 @@
 class AvailabilityValidator < ActiveModel::EachValidator
 
-    # I have placed this class in app/validators. 
     # record is the object being validated
     # attribute is either start_time or end_time 
     # value is whatever is currently assigned to start_time and end_time
@@ -14,7 +13,7 @@ class AvailabilityValidator < ActiveModel::EachValidator
       date_ranges = appointments.map { |a| a.start_time..a.end_time }
   
         date_ranges.each do |range|
-        if range.include?(value)
+        if range.include?(value) 
             record.errors.add(record.stylist.name, "is already booked during this time.")
         end
       end
