@@ -7,14 +7,6 @@
 
     <%= f.label :email, "Email Address: " %>
     <%= f.text_field :email %><br><Br>
-
-    <% if !@stylist.nil? %>
-        Appointment with <%= @stylist.name %><br><br>
-        <%= hidden_field_tag  'appointment[stylist_id]', @stylist.id %>
-    <% else %>
-        <%= f.label :stylist_id, "Preferred Stylist (leave blank for none)" %>
-        <%= f.collection_select 'appointment[stylist_id]', Stylist.all, :id, :name, :include_blank => true %><br><Br>
-    <% end %>
-
+    
     <%= f.submit %>
 <% end %>
