@@ -1,33 +1,32 @@
-  <!-- Projects Section -->
-  <section id="projects" class="projects-section bg-light">
-      <div class="container">
-      <div class="row">
-            <div class="col-md-10 col-lg-8 mx-auto text-center">
-          <div class="featured-text text-center text-lg-left">
-            <h4>Please login</h4>
-              <% flash.each do |key, value| %>
-              <div class="<%= flash_class(key) %>">
-                <br><%= value %>
-              </div>
-            <% end %><br>
-            <p class="text-black-50 mb-0">
-              <%= form_with model: @concierge do |f| %>
-                <%= f.label :email, "Email:" %>
-                <%= f.text_field :email %><br><br>
-
-                <%= f.label :password, "Password:" %>
-                <%= f.password_field :password %><br><br>
-
-                <%= f.submit "Log In" %>
-
-            <% end %><br>
-            <%= link_to "Home Page", root_path %> | <%= link_to "Sign up", signup_path %>
-            </p>
+<section id="projects" class="projects-section bg-light">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-10 col-lg-8 mx-auto text-center">
+        <div class="featured-text text-center text-lg-left">
+          <h4>Please login</h4>
+          <% flash.each do |key, value| %>
+          <div class="<%= flash_class(key) %>">
+            <br><%= value %>
           </div>
-        </div>
-    </div>
+          <% end %><br>
+          
+          <p class="text-black-50 mb-0">
+          <%= form_with model: @concierge do |f| %>
+            <%= f.label :email, "Email:" %>
+            <%= f.text_field :email %><br><br>
 
+            <%= f.label :password, "Password:" %>
+            <%= f.password_field :password %><br><br>
+
+            <%= f.submit "Log In" %>
+          <% end %><br>
+          
+          <%= link_to "Home Page", root_path %> | <%= link_to "Sign up", signup_path %>
+          </p>
+        </div>
+      </div>
     </div>
-  </section>
+  </div>
+</section>
 
 

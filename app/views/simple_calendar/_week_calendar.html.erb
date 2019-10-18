@@ -1,11 +1,12 @@
 <div class="simple-calendar">
   <div class="calendar-heading">
-    <center><% flash.each do |key, value| %>
-              <div class="<%= flash_class(key) %>">
-                <br><%= value %>
-              </div>
-            <% end %>
-            Hello <%= current_concierge.name %> | Welcome to Your Appointment Dashoard<br>
+    <center>
+    <% flash.each do |key, value| %>
+      <div class="<%= flash_class(key) %>">
+        <br><%= value %>
+      </div>
+    <% end %>
+    Hello <%= current_concierge.name %> | Welcome to Your Appointment Dashoard<br>
     <%= link_to "View All Appointments", appointments_path %> | 
     Sort by: <%= link_to "Client", clients_path %> | 
     <%= link_to "Stylist", stylists_path %><br>
