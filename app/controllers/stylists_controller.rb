@@ -13,6 +13,7 @@ class StylistsController < ApplicationController
     end
 
     def new
+        @appointments = Appointment.all
         if current_concierge.admin == true
             @stylist = Stylist.new
         else
@@ -22,12 +23,13 @@ class StylistsController < ApplicationController
     end
 
     def create
+        @appointments = Appointment.all
         if current_concierge.admin == true
             @stylist = Stylist.create(stylist_params)
 
             if @stylist.save
                 flash[:notice] = 'Stylist added'
-                redirect_to stylist_path(@stylist)
+                redirect_to stylist_appointments_path(@stylist)
             else
                 render :new
             end
@@ -35,6 +37,7 @@ class StylistsController < ApplicationController
     end
 
     def edit
+        @appointments = Appointment.all
         if current_concierge.admin == true
             @stylist = Stylist.find_by(id: params[:id])
         else
@@ -50,7 +53,7 @@ class StylistsController < ApplicationController
 
             if stylist.save
                 flash[:notice] = 'Information updated'
-                redirect_to stylist_path(stylist)
+                redirect_to stylist_appointments_path(stylist)
             else
                 flash[:error] = 'Information not updated.'
                 redirect_to edit_stylist_path(stylist)

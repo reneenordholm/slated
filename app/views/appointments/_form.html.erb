@@ -21,7 +21,10 @@
     <%= f.collection_select :service_id, Service.all, :id, :name %><br><Br>
 
     <% if !@stylist.nil? %>
-        Appointment with <%= @stylist.name %><br><br>
+        Appointment with <%= @stylist.name %>
+              <% if current_concierge.admin %> 
+               | <%= link_to "Edit Stylist", edit_stylist_path(@stylist) %><br><br>
+              <% end %>
         <%= hidden_field_tag  'appointment[stylist_id]', @stylist.id %>
     <% else %>
         <%= f.label :stylist_id, "Select Stylist" %>

@@ -1,40 +1,13 @@
-  
-    <!-- Projects Section -->
-  <section id="projects" class="projects-section bg-light">
-    <div class="container">
+ <%= render partial: "s_head" %> 
+            
+    <h4>Select a Stylist to View Appointments</h4>
+    <p class="text-black-50 mb-0">
+        <% @stylists.each do |s| %>
+            <%= link_to s.name, stylist_appointments_path(s) %><br>
+        <% end %>
+    </p>
 
-      <!-- Featured Project Row -->
-      <div class="row align-items-center no-gutters mb-4 mb-lg-5">
-        <div class="col-xl-8 col-lg-7">
-          <%= week_calendar events: @appointments do |date, appointments| %>
-            <%= date.to_formatted_s(:short) %>
-
-            <% appointments.each do |a| %>
-              <div>
-                  ______________________
-                  <%= a.start_time.strftime("%l:%M %p") %> - <%= a.end_time.strftime("%l:%M %p") %><br>
-                  Client: <%= link_to a.client.name, client_path(a.client) %><br>
-                  Service: <%= a.service.name %><br>
-                  Stylist: <%= link_to a.stylist.name, stylist_appointments_path(a.stylist_id) %><br>
-                  <%= link_to "Appointment Detail", stylist_appointment_path(a.stylist_id, a) %><br>
-              </div>
-            <% end %>
-          <% end %>
-        </div>
-        <div class="col-xl-4 col-lg-5">
-          <div class="featured-text text-center text-lg-left">
-            <h4>Select a Stylist to View Appointments</h4>
-            <p class="text-black-50 mb-0">
-                <% @stylists.each do |s| %>
-                    <%= link_to s.name, stylist_appointments_path(s) %><br>
-                <% end %>
-            </p>
-          </div>
-        </div>
-      </div>
-
-    </div>
-  </section>
+<%= render partial: "s_foot" %>
 
   
 
