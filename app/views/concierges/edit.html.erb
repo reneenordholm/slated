@@ -1,19 +1,8 @@
+ <%= render partial: "c_head" %>
 
-  <!-- Projects Section -->
-  <section id="projects" class="projects-section bg-light">
-      <div class="container">
-      <div class="row">
-            <div class="col-md-10 col-lg-8 mx-auto text-center">
-          <div class="featured-text text-center text-lg-left">
-            <h4><%= @concierge.name %> Edit Profile</h4>
-            <p class="text-black-50 mb-0">
-              <%= render partial: "form", locals: { concierge: @concierge } %>
-            </p>
-          </div>
-        </div>
-    </div>
-
-    </div>
-  </section>
-
-
+  <h4><%= @concierge.name %> Edit Profile</h4>
+  <p class="text-black-50 mb-0">
+    <%= render partial: "form", locals: { concierge: @concierge } %>
+  </p>
+ 
+<%= render partial: "c_foot" %>

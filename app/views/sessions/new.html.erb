@@ -5,6 +5,11 @@
             <div class="col-md-10 col-lg-8 mx-auto text-center">
           <div class="featured-text text-center text-lg-left">
             <h4>Please login</h4>
+              <% flash.each do |key, value| %>
+              <div class="<%= flash_class(key) %>">
+                <br><%= value %>
+              </div>
+            <% end %><br>
             <p class="text-black-50 mb-0">
               <%= form_with model: @concierge do |f| %>
                 <%= f.label :email, "Email:" %>

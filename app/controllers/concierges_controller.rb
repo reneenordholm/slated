@@ -18,9 +18,11 @@ class ConciergesController < ApplicationController
  
     def show
         @concierge = Concierge.find(params[:id])
+        @appointments = Appointment.all
     end
 
     def edit
+        @appointments = Appointment.all
         @concierge = Concierge.find_by(id: params[:id])
 
         if current_concierge.admin == true
