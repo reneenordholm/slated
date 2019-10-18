@@ -39,17 +39,17 @@ class ConciergesController < ApplicationController
     end
 
     def update
-        concierge = Concierge.find_by(id: params[:id])
-        if current_concierge != @concierge || current_concierge.admin == true
+        @concierge = Concierge.find_by(id: params[:id])
+        if current_concierge == @concierge || current_concierge.admin == true
 
-            concierge.update(concierge_params)
+            @concierge.update(concierge_params)
 
-            if concierge.save
+            if @concierge.save
                 flash[:notice] = 'Information updated'
-                redirect_to concierge_path(concierge)
+                redirect_to concierge_path(@concierge)
             else
                 flash[:error] = 'Information not updated.'
-                redirect_to edit_concierge_path(concierge)
+                redirect_to edit_concierge_path(@concierge)
             end
         end
     end

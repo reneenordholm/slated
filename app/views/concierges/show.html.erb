@@ -17,9 +17,12 @@
         <% end %>
     </ul>
 
-    <% if current_concierge.admin == true || current_concierge == @concierge %>
-    <%= link_to 'Edit Concierge Account', edit_concierge_path(@concierge) %> | 
-      <%= link_to 'Delete Concierge', concierge_path(@concierge), method: :delete %>
-    <% end %>
+    <% if current_concierge == @concierge || current_concierge.admin == true %>
+    <%= link_to 'Edit Concierge Account', edit_concierge_path(@concierge) %>
+        <% if current_concierge.admin == true %> | 
+            <%= link_to 'Delete Concierge', concierge_path(@concierge), method: :delete %>
+        <% end %>
+           <% end %>
+ 
 
 <%= render partial: "c_foot" %>
