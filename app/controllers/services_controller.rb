@@ -1,5 +1,6 @@
 class ServicesController < ApplicationController
-
+    before_action :logged_in?
+    
     def index
         @services = Service.all
         @appointments = Appointment.all

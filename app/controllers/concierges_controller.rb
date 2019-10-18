@@ -2,6 +2,7 @@ class ConciergesController < ApplicationController
     helper_method :is_admin?
 
     def index
+        logged_in?
         @appointments = Appointment.all
         @concierges = Concierge.all
     end
@@ -22,6 +23,7 @@ class ConciergesController < ApplicationController
     end
  
     def show
+        logged_in?
         @concierge = Concierge.find(params[:id])
         @appointments = Appointment.all
     end
