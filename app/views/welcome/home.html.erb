@@ -11,6 +11,11 @@
                 <%= link_to "Sign In", signin_path, class: "btn btn-primary js-scroll-trigger" %> 
                 <%= link_to "Google Sign In", "/auth/google_oauth2", method: :post, class: "btn btn-primary js-scroll-trigger" %>
             <% end %>
+            <p><% flash.each do |key, value| %>
+              <div class="<%= flash_class(key) %>">
+                <br><%= value %>
+              </div>
+            <% end %></p>
       </div>
     </div>
   </header>
