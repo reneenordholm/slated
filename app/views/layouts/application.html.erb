@@ -31,13 +31,6 @@
     <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
       <div class="collapse navbar-collapse" id="navbarResponsive">
         <ul class="navbar-nav ml-auto">
-          <li class="nav-item">    
-            <% flash.each do |key, value| %>
-              <div class="<%= flash_class(key) %>">
-                <br><%= value %>
-              </div>
-            <% end %>
-          </li>
           <% if current_concierge %>
             <li class="nav-item">
               <div class="dropdown">
