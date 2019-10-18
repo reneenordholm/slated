@@ -1,24 +1,21 @@
 class ClientsController < ApplicationController
     before_action :logged_in?
+    before_action :all_appointments, except: [:update]
 
     def index 
         @clients = Client.all
-        @appointments = Appointment.all
     end
     
     def show
         @client = Client.find(params[:id])
-        @appointments = Appointment.all
     end
 
     def new
         @client = Client.new
-        @appointments = Appointment.all
         @stylist = Stylist.find_by(id: params[:stylist_id])
     end
 
     def create
-        @appointments = Appointment.all
         @client = Client.create(client_params)
 
         if @client.save
@@ -31,7 +28,6 @@ class ClientsController < ApplicationController
 
     def edit
         @client = Client.find_by(id: params[:id])
-        @appointments = Appointment.all
     end
 
     def update

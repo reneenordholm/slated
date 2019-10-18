@@ -1,6 +1,7 @@
 class ApplicationController < ActionController::Base
     helper_method :current_concierge
 
+
     def logged_in?
         log_in_error if !current_concierge
     end
@@ -20,4 +21,10 @@ class ApplicationController < ActionController::Base
         #@current_concierge ||=
          Concierge.find(session[:concierge_id]) if session[:concierge_id]
     end
+
+    def all_appointments
+        @appointments = Appointment.all
+    end
+
+
 end

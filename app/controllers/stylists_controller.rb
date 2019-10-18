@@ -1,19 +1,17 @@
 class StylistsController < ApplicationController
     before_action :logged_in?
+    before_action :all_appointments, except: [:update]
 
     def index
         @stylists = Stylist.all
-        @appointments = Appointment.all
     end
 
 
     def show
         @stylist = Stylist.find(params[:id])
-        @appointments = Appointment.all
     end
 
     def new
-        @appointments = Appointment.all
         if current_concierge.admin == true
             @stylist = Stylist.new
         else
@@ -23,7 +21,6 @@ class StylistsController < ApplicationController
     end
 
     def create
-        @appointments = Appointment.all
         if current_concierge.admin == true
             @stylist = Stylist.create(stylist_params)
 
@@ -37,7 +34,6 @@ class StylistsController < ApplicationController
     end
 
     def edit
-        @appointments = Appointment.all
         if current_concierge.admin == true
             @stylist = Stylist.find_by(id: params[:id])
         else

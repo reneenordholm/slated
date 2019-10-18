@@ -1,5 +1,6 @@
 class AppointmentsController < ApplicationController
     before_action :logged_in?
+    before_action :all_appointments, only: [:show, :edit]
 
     def index
         if params[:stylist_id]
@@ -16,7 +17,6 @@ class AppointmentsController < ApplicationController
 
     def show
         @appointment = Appointment.find_by_id(params[:id])
-        @appointments = Appointment.all
         if @appointment.nil?
             flash[:notice] = 'That appointment does not exist' 
             redirect_to appointments_path 
@@ -46,7 +46,6 @@ class AppointmentsController < ApplicationController
 
     def edit
         @appointment = Appointment.find_by(id: params[:id])
-        @appointments = Appointment.all
     end
 
     def update

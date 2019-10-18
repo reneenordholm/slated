@@ -1,9 +1,9 @@
 class ConciergesController < ApplicationController
     helper_method :is_admin?
+    before_action :all_appointments, only: [:index, :show, :edit]
 
     def index
         logged_in?
-        @appointments = Appointment.all
         @concierges = Concierge.all
     end
 
@@ -25,11 +25,9 @@ class ConciergesController < ApplicationController
     def show
         logged_in?
         @concierge = Concierge.find(params[:id])
-        @appointments = Appointment.all
     end
 
     def edit
-        @appointments = Appointment.all
         @concierge = Concierge.find_by(id: params[:id])
 
         if current_concierge.admin == true
