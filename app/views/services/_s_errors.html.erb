@@ -1,0 +1,9 @@
+<% if !@service.nil? && @service.errors.any? %>
+  <div id="error">
+    <h5><%= @service.errors.count %> error(s) prohibited account creation:</h5>
+ 
+    <ul><% @service.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %></ul>
+  </div>
+<% end %>

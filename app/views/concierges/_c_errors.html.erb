@@ -1,0 +1,9 @@
+<% if !@concierge.nil? && @concierge.errors.any? %>
+  <div id="error">
+    <h5><%= @concierge.errors.count %> error(s) prohibited account creation:</h5>
+ 
+    <ul><% @concierge.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %></ul>
+  </div>
+<% end %>

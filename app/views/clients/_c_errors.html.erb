@@ -1,0 +1,9 @@
+<% if !@client.nil? && @client.errors.any? %>
+  <div id="error">
+    <h5><%= @client.errors.count %> error(s) prohibited account creation:</h5>
+ 
+    <ul><% @client.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %></ul>
+  </div>
+<% end %>
