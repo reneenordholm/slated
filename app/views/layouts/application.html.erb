@@ -68,7 +68,7 @@
               <%= link_to "Sign In", signin_path, class: "nav-link js-scroll-trigger" %>
             </li>
             <li class="nav-item">
-              <%= link_to "Google Sign In", "/auth/google_oauth2", class: "nav-link js-scroll-trigger" %>
+              <%= link_to "Google Sign In", "/auth/google_oauth2", method: :post, class: "nav-link js-scroll-trigger" %>
             </li>
           <% end %>
         </ul>
