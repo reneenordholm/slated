@@ -1,15 +1,3 @@
-<% if !@appointment.nil? && @appointment.errors.any? %>
-  <div id="error">
-    <h3><%= @appointment.errors.count %> error(s) prohibited account creation:</h3>
- 
-    <ul>
-    <% @appointment.errors.full_messages.each do |msg| %>
-      <li><%= msg %></li>
-    <% end %>
-    </ul>
-  </div>
-<% end %>
-
 <%= form_with model: @appointment, local: true do |f| %>
     <%= f.label :start_time, "Appointment Start" %><br>
     <%= f.datetime_select :start_time, { ampm: true, order: [:month, :day, :year] } %><br><Br>

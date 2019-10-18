@@ -12,8 +12,8 @@
 
             <% appointments.each do |a| %>
               <div>
-                  ______________________
-                  <%= a.start_time.strftime("%l:%M %p") %> - <%= a.end_time.strftime("%l:%M %p") %><br>
+                  _________________
+                  <%= a.start_time.strftime("%l:%M%p") %>-<%= a.end_time.strftime("%l:%M%p") %><br>
                   Client: <%= a.client.name %><br>
                   Service: <%= a.service.name %><br>
                   Stylist: <%= a.stylist.name %><br>

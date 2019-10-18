@@ -14,7 +14,7 @@ class AvailabilityValidator < ActiveModel::EachValidator
   
         date_ranges.each do |range|
         if range.include?(value) 
-            record.errors.add(record.stylist.name, "is already booked during this time.")
+            record.errors.add(record.stylist.name, "is already booked during this #{attribute}.")
         end
       end
     end

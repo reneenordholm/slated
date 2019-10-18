@@ -1,0 +1,8 @@
+<% if !@appointment.nil? && @appointment.errors.any? %>
+  <div id="error">
+    <h5><%= @appointment.errors.count %> error(s) prohibited account creation:</h5>
+     <ul><% @appointment.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %></ul>
+  </div>
+<% end %>
