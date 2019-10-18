@@ -31,6 +31,7 @@ class ClientsController < ApplicationController
 
     def edit
         @client = Client.find_by(id: params[:id])
+        @appointments = Appointment.all
     end
 
     def update

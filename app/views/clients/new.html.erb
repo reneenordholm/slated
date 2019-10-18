@@ -1,35 +1,8 @@
-
-  <!-- Projects Section -->
-  <section id="projects" class="projects-section bg-light">
-    <div class="container">
-
-      <!-- Featured Project Row -->
-      <div class="row align-items-center no-gutters mb-4 mb-lg-5">
-        <div class="col-xl-8 col-lg-7">
-          <%= week_calendar events: @appointments do |date, appointments| %>
-            <%= date.to_formatted_s(:short) %>
-
-            <% appointments.each do |a| %>
-              <div>
-                  ______________________
-                  <%= a.start_time.strftime("%l:%M %p") %> - <%= a.end_time.strftime("%l:%M %p") %><br>
-                  Client: <%= link_to a.client.name, client_path(a.client) %><br>
-                  Service: <%= a.service.name %><br>
-                  Stylist: <%= link_to a.stylist.name, stylist_path(a.stylist) %><br>
-                  <%= link_to "Appointment Detail", appointment_path(a) %><br>
-              </div>
-            <% end %>
-          <% end %>
-        </div>
-        <div class="col-xl-4 col-lg-5">
-          <div class="featured-text text-center text-lg-left">
-            <h4>Add a Client</h4>
-            <p class="text-black-50 mb-0">
-              <%= render partial: "form", locals: { client: @client } %>
-            </p>
-          </div>
-        </div>
-      </div>
-
-    </div>
-  </section>
+ <%= render partial: "c_head" %>
+            
+  <h4>Add a Client</h4>
+  <p class="text-black-50 mb-0">
+    <%= render partial: "form", locals: { client: @client } %>
+  </p>
+          
+<%= render partial: "c_foot" %>

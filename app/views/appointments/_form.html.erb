@@ -29,7 +29,8 @@
     <% end %>
 
     <% if !@client.nil? %>
-        Appointment for <%= @client.name %><br><br>
+        Appointment for <%= @client.name %> | 
+        <%= link_to "Edit Client", edit_client_path(@client) %><br><br>
         <%= hidden_field_tag  'appointment[client_id]', @client.id %>
     <% else %>
         <%= f.label :client_id, "Select Client" %>

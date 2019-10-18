@@ -1,19 +1,10 @@
+ <%= render partial: "c_head" %>
 
-    <!-- Projects Section -->
-  <section id="projects" class="projects-section bg-light">
-      <div class="container">
-      <div class="row">
-            <div class="col-md-10 col-lg-8 mx-auto text-center">
-          <div class="featured-text text-center text-lg-left">
-            <h4>Edit a Client</h4>
-            <p class="text-black-50 mb-0">
-                <%= render partial: "form", locals: { client: @client } %>
-                <br><Br>
-                <%= link_to "Back to Client", client_path(@client) %>
-            </p>
-          </div>
-        </div>
-    </div>
-
-    </div>
-  </section>
+  <h4>Edit a Client</h4>
+  <p class="text-black-50 mb-0">
+      <%= render partial: "form", locals: { client: @client } %>
+      <br><Br>
+      <%= link_to "Back to Client's History", client_appointments_path(@client) %>
+  </p>
+          
+<%= render partial: "c_foot" %>
