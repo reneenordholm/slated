@@ -11,7 +11,8 @@
     <% if !@stylist.nil? %>
         Appointment with <%= @stylist.name %>
               <% if current_concierge.admin %> 
-               | <%= link_to "Edit Stylist", edit_stylist_path(@stylist) %><br><br>
+               | <%= link_to "Edit Stylist", edit_stylist_path(@stylist) %> 
+               | <%= link_to 'Delete Stylist', stylist_path(@stylist), method: :delete %><br><br>
               <% end %>
         <%= hidden_field_tag  'appointment[stylist_id]', @stylist.id %>
     <% else %>

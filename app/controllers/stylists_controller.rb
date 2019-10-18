@@ -61,6 +61,13 @@ class StylistsController < ApplicationController
         end
     end
 
+    def destroy 
+        @stylist = Stylist.find_by(id: params[:id])
+        @stylist.destroy 
+        flash[:notice] = 'Stylist deleted.'
+        redirect_to stylists_path
+    end
+
     private
 
         def stylist_params
