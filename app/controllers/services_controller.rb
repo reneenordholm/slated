@@ -2,13 +2,16 @@ class ServicesController < ApplicationController
 
     def index
         @services = Service.all
+        @appointments = Appointment.all
     end
     
     def show
+        @appointments = Appointment.all
         @service = Service.find(params[:id])
     end
 
     def new
+        @appointments = Appointment.all
         if current_concierge.admin == true
             @service = Service.new
         else
@@ -18,6 +21,7 @@ class ServicesController < ApplicationController
     end
 
     def create
+        @appointments = Appointment.all
         if current_concierge.admin == true
             @service = Service.create(service_params)
 
@@ -31,6 +35,8 @@ class ServicesController < ApplicationController
     end
 
     def edit
+        @appointments = Appointment.all
+
         if current_concierge.admin == true
             @service = Service.find_by(id: params[:id])
         else

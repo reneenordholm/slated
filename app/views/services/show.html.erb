@@ -1,28 +1,22 @@
-<!-- Projects Section -->
-  <section id="projects" class="projects-section bg-light">
-      <div class="container">
-      <div class="row">
-            <div class="col-md-10 col-lg-8 mx-auto text-center">
-          <div class="featured-text text-center text-lg-left">
-            <h4>Appointment History for <%= @service.name %>s</h4>
-            <p class="text-black-50 mb-0">
-                <ul>
-                    <% @service.appointments.each do |s| %>
-                        <li>
-                        Client: <%= s.client.name %><br>
-                        Service: <%= s.service.name %> (<%= s.service.description %>)<br>
-                        Stylist: <%= s.stylist.name %><br>
-                        Scheduled for: <%= s.start_time.strftime("%b %e, %l:%M %p") %> - <%= s.end_time.strftime("%b %e, %l:%M %p") %><br>
-                        <%= link_to "View Appointment Detail", appointment_path(s) %><br>
-                        </li>
-                    <% end %>
-                </ul>
+ <%= render partial: "s_head" %> 
+            
+    <h4>Appointment History for <%= @service.name %>s</h4>
+    <p class="text-black-50 mb-0">
+        <ul>
+            <% @service.appointments.each do |s| %>
+                <li>
+                Client: <%= s.client.name %><br>
+                Service: <%= s.service.name %> (<%= s.service.description %>)<br>
+                Stylist: <%= s.stylist.name %><br>
+                Scheduled for: <%= s.start_time.strftime("%b %e, %l:%M %p") %> - <%= s.end_time.strftime("%b %e, %l:%M %p") %><br>
+                <%= link_to "View Appointment Detail", appointment_path(s) %><br>
+                </li>
+            <% end %>
+        </ul>
 
-                <% if current_concierge.admin %>
-                <%= link_to "Edit #{@service.name}", edit_service_path(@service) %>
-                <% end %>
-            </p>
-          </div>
-        </div>
-        </div>
-  </section>
+        <% if current_concierge.admin %>
+        <%= link_to "Edit #{@service.name}", edit_service_path(@service) %>
+        <% end %>
+    </p>
+          
+<%= render partial: "s_foot" %>

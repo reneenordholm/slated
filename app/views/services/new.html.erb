@@ -1,16 +1,8 @@
-    <!-- Projects Section -->
-  <section id="projects" class="projects-section bg-light">
-      <div class="container">
-      <div class="row">
-            <div class="col-md-10 col-lg-8 mx-auto text-center">
-          <div class="featured-text text-center text-lg-left">
-            <h4>Add a Service</h4>
-            <p class="text-black-50 mb-0">
-                <%= render partial: "form", locals: { service: @service } %>
-            </p>
-          </div>
-        </div>
-    </div>
-
-    </div>
-  </section>
+ <%= render partial: "s_head" %> 
+            
+    <h4>Add a Service</h4>
+    <p class="text-black-50 mb-0">
+        <%= render partial: "form", locals: { service: @service } %>
+    </p>
+          
+<%= render partial: "s_foot" %>

@@ -1,28 +1,15 @@
-    <!-- Projects Section -->
-  <section id="projects" class="projects-section bg-light">
-      <div class="container">
-      <div class="row">
-            <div class="col-md-10 col-lg-8 mx-auto text-center">
-          <div class="featured-text text-center text-lg-left">
-            <h4>Appointments by Service</h4>
-            <p class="text-black-50 mb-0">
-                <% @services.each do |s| %>
-                Service: <%= s.name %><ul>
-                    <% s.appointments.each do |a| %>
-                    <li>
-                    Service Description: <%= a.service.description %><br>
-                    Client: <%= a.client.name %><br>
-                    Stylist: <%= link_to a.stylist.name, stylist_path(a.stylist) %><br>
-                    Scheduled for: <%= a.start_time.strftime("%b %e, %l:%M %p") %> - <%= a.end_time.strftime("%b %e, %l:%M %p") %><br>
-                    <%= link_to "View Appointment Detail", appointment_path(a) %><br>
-                    </li>
-                    <% end %>
-                    </ul>
-                <% end %>
-            </p>
-          </div>
-        </div>
-    </div>
-
-    </div>
-  </section>
+ <%= render partial: "s_head" %> 
+  
+    <h4>Select a Service to View Appointment History</h4>
+    <p class="text-black-50 mb-0">
+    <% @services.each do |s| %>
+        <%= link_to s.name, service_path(s) %><br>
+     <% end %>
+    <br><br>
+  
+    <% if current_concierge.admin %>
+        <%= link_to "Add a Service", new_service_path %>
+    <% end %>
+    </p>
+          
+<%= render partial: "s_foot" %>
