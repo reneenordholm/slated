@@ -60,6 +60,13 @@ class ServicesController < ApplicationController
         end
     end
 
+    def destroy 
+        @service = Service.find_by(id: params[:id])
+        @service.destroy 
+        flash[:notice] = 'Service deleted.'
+        redirect_to services_path
+    end
+
     private
 
         def service_params
