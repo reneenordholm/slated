@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   
-  resources :stylists, only: [:index, :new, :create, :edit, :update] do
+  resources :stylists do
     resources :appointments, only: [:new, :index, :show, :create, :edit, :update]
   end
 
@@ -9,8 +9,8 @@ Rails.application.routes.draw do
   end
   
   resources :appointments
-  resources :concierges, only: [:create, :show, :edit, :update]
-  resources :services, only: [:index, :show, :new, :create, :edit, :update]
+  resources :concierges
+  resources :services
 
 
   root 'welcome#home'

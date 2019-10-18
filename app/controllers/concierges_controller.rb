@@ -1,6 +1,11 @@
 class ConciergesController < ApplicationController
     helper_method :is_admin?
 
+    def index
+        @appointments = Appointment.all
+        @concierges = Concierge.all
+    end
+
     def new
         @concierge = Concierge.new
     end
@@ -47,6 +52,13 @@ class ConciergesController < ApplicationController
                 redirect_to edit_concierge_path(concierge)
             end
         end
+    end
+
+    def destroy 
+        @concierge = Concierge.find_by(id: params[:id])
+        @concierge.destroy 
+        flash[:notice] = 'Concierge deleted.'
+        redirect_to concierges_path
     end
     
     private

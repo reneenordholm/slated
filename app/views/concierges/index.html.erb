@@ -1,0 +1,10 @@
+ <%= render partial: "c_head" %>
+            
+  <h4>Select a Concierge to View Appointments History</h4>
+  <p class="text-black-50 mb-0">
+      <% @concierges.each do |c| %>
+          <%= link_to c.name, concierge_path(c) %><br>
+      <% end %>
+  </p>
+          
+<%= render partial: "c_foot" %>
