@@ -13,8 +13,6 @@ A step by step series of examples that tell you how to get a development env run
 3. Run 'bundle install' in your terminal to install any uninstalled dependencies.
 
 4. Run Rails Server in your terminal to create a local environment to run and play with the app.  
-
-
 ## Built With
 
 * [Rails](https://github.com/rails/rails) - Framework
@@ -25,7 +23,6 @@ A step by step series of examples that tell you how to get a development env run
 * [BlackrockDigital](https://github.com/BlackrockDigital) / [startbootstrap-grayscale](https://github.com/BlackrockDigital/startbootstrap-grayscale) - Bootstrap theme
 * [Bootstrap](https://github.com/twbs/bootstrap) - Front-end framework
 
-
 ## Contributing
 
 Bug reports and pull requests are welcome on GitHub at https://github.com/reneenordholm/slated. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](https://www.contributor-covenant.org/) code of conduct.
@@ -33,6 +30,10 @@ Bug reports and pull requests are welcome on GitHub at https://github.com/reneen
 ## Authors
 
 * [Renee Nordholm](https://github.com/reneenordholm) - *App Creator*
+
+## Video Walkthrough
+
+* [YouTube](https://youtu.be/6kxpRVOcgq4) - *Front end walkthrough*
 
 ## License
 
