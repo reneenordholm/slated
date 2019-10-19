@@ -11,7 +11,7 @@ class ServicesController < ApplicationController
     end
 
     def new
-        if current_concierge.admin == true
+        if admin?
             @service = Service.new
         else
             flash[:error] = "You do not have permission to add a service"
@@ -20,7 +20,7 @@ class ServicesController < ApplicationController
     end
 
     def create
-        if current_concierge.admin == true
+        if admin?
             @service = Service.create(service_params)
 
             if @service.save
@@ -33,8 +33,8 @@ class ServicesController < ApplicationController
     end
 
     def edit
-        if current_concierge.admin == true
-            @service = Service.find_by(id: params[:id])
+        if admin?
+            set_service
         else
             flash[:error] = "You do not have permission to edit a service"
             redirect_to appointments_path 
@@ -42,22 +42,22 @@ class ServicesController < ApplicationController
     end
 
     def update
-        if current_concierge.admin == true
-            service = Service.find_by(id: params[:id])
-            service.update(service_params)
+        if admin?
+            set_service
+            @service.update(service_params)
 
-            if service.save
+            if @service.save
                 flash[:notice] = 'Information updated'
-                redirect_to service_path(service)
+                redirect_to service_path(@service)
             else
                 flash[:error] = 'Information not updated.'
-                redirect_to edit_service_path(service)
+                @redirect_to edit_service_path(@service)
             end
         end
     end
 
     def destroy 
-        @service = Service.find_by(id: params[:id])
+        set_service
         @service.destroy 
         flash[:notice] = 'Service deleted.'
         redirect_to services_path
@@ -67,6 +67,10 @@ class ServicesController < ApplicationController
 
         def service_params
             params.require(:service).permit(:name, :description, :duration)
+        end
+
+        def set_service
+            @service = Service.find_by(id: params[:id])
         end
 
 end

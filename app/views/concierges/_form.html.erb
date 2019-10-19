@@ -7,7 +7,7 @@
     <%= f.label :email, "Email Address" %>
     <%= f.text_field :email %><br><Br>
 
-    <% if !current_concierge.nil? && current_concierge.admin == true %>
+    <% if !current_concierge.nil? && admin? %>
         <%= f.label :admin, "Admin?" %>
         <%= f.check_box :admin %><br><br>
     <% end %>

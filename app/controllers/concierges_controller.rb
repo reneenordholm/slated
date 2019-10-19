@@ -1,9 +1,8 @@
 class ConciergesController < ApplicationController
-    helper_method :is_admin?
     before_action :all_appointments, only: [:index, :show, :edit]
+    before_action :logged_in?, except: [:new, :create]
 
     def index
-        logged_in?
         @concierges = Concierge.all
     end
 
@@ -23,24 +22,23 @@ class ConciergesController < ApplicationController
     end
  
     def show
-        logged_in?
         @concierge = Concierge.find(params[:id])
     end
 
     def edit
-        @concierge = Concierge.find_by(id: params[:id])
+        set_concierge
 
-        if current_concierge.admin == true
+        if admin?
             
-        elsif current_concierge != @concierge
+        elsif !current_concierge_is_found_concierge?
             flash[:error] = "You do not have permission to update another concierge's account"
             redirect_to appointments_path 
         end
     end
 
     def update
-        @concierge = Concierge.find_by(id: params[:id])
-        if current_concierge == @concierge || current_concierge.admin == true
+        set_concierge
+        if current_concierge_is_found_concierge? || admin?
 
             @concierge.update(concierge_params)
 
@@ -55,7 +53,8 @@ class ConciergesController < ApplicationController
     end
 
     def destroy 
-        @concierge = Concierge.find_by(id: params[:id])
+        set_concierge
+        admin?
         @concierge.destroy 
         flash[:notice] = 'Concierge deleted.'
         redirect_to concierges_path
@@ -67,13 +66,13 @@ class ConciergesController < ApplicationController
         params.require(:concierge).permit(:password, :email, :name, :admin)
     end
 
-    def is_admin?
+    def set_concierge
         @concierge = Concierge.find_by(id: params[:id])
-        if @concierge.admin == true
-          "Yes"
-        else
-          "No"
-        end
     end
+
+    def current_concierge_is_found_concierge?
+        current_concierge == @concierge
+    end
+
 
 end

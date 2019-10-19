@@ -1,5 +1,5 @@
 class ApplicationController < ActionController::Base
-    helper_method :current_concierge
+    helper_method :current_concierge, :admin?
 
 
     def logged_in?
@@ -25,6 +25,11 @@ class ApplicationController < ActionController::Base
     def all_appointments
         @appointments = Appointment.all
     end
+
+    def admin?
+        current_concierge.admin == true
+    end
+
 
 
 end

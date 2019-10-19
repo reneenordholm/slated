@@ -12,7 +12,7 @@ class StylistsController < ApplicationController
     end
 
     def new
-        if current_concierge.admin == true
+        if admin?
             @stylist = Stylist.new
         else
             flash[:error] = "You do not have permission to add a stylist"
@@ -21,7 +21,7 @@ class StylistsController < ApplicationController
     end
 
     def create
-        if current_concierge.admin == true
+        if admin?
             @stylist = Stylist.create(stylist_params)
 
             if @stylist.save
@@ -34,8 +34,8 @@ class StylistsController < ApplicationController
     end
 
     def edit
-        if current_concierge.admin == true
-            @stylist = Stylist.find_by(id: params[:id])
+        if admin?
+            set_stylist
         else
             flash[:error] = "You do not have permission to edit a stylist"
             redirect_to appointments_path 
@@ -43,13 +43,13 @@ class StylistsController < ApplicationController
     end
 
     def update
-        if current_concierge.admin == true
-            stylist = Stylist.find_by(id: params[:id])
-            stylist.update(stylist_params)
+        if admin?
+            set_stylist
+            @stylist.update(stylist_params)
 
-            if stylist.save
+            if @stylist.save
                 flash[:notice] = 'Information updated'
-                redirect_to stylist_appointments_path(stylist)
+                redirect_to stylist_appointments_path(@stylist)
             else
                 flash[:error] = 'Information not updated.'
                 redirect_to edit_stylist_path(stylist)
@@ -58,7 +58,7 @@ class StylistsController < ApplicationController
     end
 
     def destroy 
-        @stylist = Stylist.find_by(id: params[:id])
+        set_stylist
         @stylist.destroy 
         flash[:notice] = 'Stylist deleted.'
         redirect_to stylists_path
@@ -68,6 +68,10 @@ class StylistsController < ApplicationController
 
         def stylist_params
             params.require(:stylist).permit(:name)
+        end
+
+        def set_stylist
+            @stylist = Stylist.find_by(id: params[:id])
         end
 
 end

@@ -4,7 +4,7 @@
 
     <p class="text-black-50 mb-0">
     <p>Email Address: <%= @concierge.email %><br>
-    <p>Admin? <%= is_admin? %></p>
+    <p>Admin? <% if @concierge.admin == true %>Yes<% else %>No<% end %></p>
 
     <ul>Bookings:
         <% @concierge.appointments.each do |c| %>
@@ -17,12 +17,12 @@
         <% end %>
     </ul>
 
-    <% if current_concierge == @concierge || current_concierge.admin == true %>
+    <% if current_concierge == @concierge || admin? %>
     <%= link_to 'Edit Concierge Account', edit_concierge_path(@concierge) %>
-        <% if current_concierge.admin == true %> | 
+        <% if admin? %> | 
             <%= link_to 'Delete Concierge', concierge_path(@concierge), method: :delete %>
         <% end %>
-           <% end %>
+    <% end %>
  
 
 <%= render partial: "c_foot" %>
