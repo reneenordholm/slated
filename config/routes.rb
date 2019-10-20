@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   
   resources :stylists do
-    resources :appointments, only: [:new, :index, :show, :create, :edit, :update]
+    resources :appointments
   end
 
   resources :clients, only: [:index, :new, :show, :create, :edit, :update] do
@@ -19,6 +19,7 @@ Rails.application.routes.draw do
   get '/signin', to: 'sessions#new'
   post '/signin', to: 'sessions#create'
   post '/signout', to: 'sessions#destroy'
+  post '/stylists/:stylist_id/appointments/new', to: 'appointments#create'
 
   get "/auth/:provider/callback", to: "sessions#google_auth"
   get 'auth/failure', to: redirect('/')

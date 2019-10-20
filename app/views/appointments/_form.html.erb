@@ -6,7 +6,7 @@
     <%= f.datetime_select :end_time, { ampm: true, order: [:month, :day, :year] } %><br><Br>
 
     <%= f.label :service_id, "Select Service" %>
-    <%= f.collection_select :service_id, Service.all, :id, :name %><br><Br>
+    <%= f.collection_select :service_id, Service.all, :id, :name, :include_blank => true %><br><Br>
 
     <% if !@stylist.nil? %>
         Appointment with <%= @stylist.name %>
@@ -17,7 +17,7 @@
         <%= hidden_field_tag  'appointment[stylist_id]', @stylist.id %>
     <% else %>
         <%= f.label :stylist_id, "Select Stylist" %>
-        <%= f.collection_select :stylist_id, Stylist.all, :id, :name %><br><Br>
+        <%= f.collection_select :stylist_id, Stylist.all, :id, :name, :include_blank => true %><br><Br>
     <% end %>
 
     <% if !@client.nil? %>
@@ -26,7 +26,7 @@
         <%= hidden_field_tag  'appointment[client_id]', @client.id %>
     <% else %>
         <%= f.label :client_id, "Select Client" %>
-        <%= f.collection_select :client_id, Client.all, :id, :name %>
+        <%= f.collection_select :client_id, Client.all, :id, :name, :include_blank => true %>
         or <%= link_to "Add a Client", new_client_path %><br><Br>
     <% end %>
 

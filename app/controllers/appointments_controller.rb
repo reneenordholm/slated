@@ -24,10 +24,18 @@ class AppointmentsController < ApplicationController
     end
 
     def new
-        @stylist = Stylist.find_by(id: params[:stylist_id])
-        @client = Client.find_by(id: params[:client_id])
-        @appointments = current_concierge.appointments.select { |a| a.persisted? }
-        @appointment = current_concierge.appointments.build
+        if params[:stylist_id]
+            @stylist = Stylist.find(params[:stylist_id])
+            @appointments = @stylist.appointments
+            @appointment = current_concierge.appointments.build
+        elsif params[:client_id]
+            @client = Client.find(params[:client_id])
+            @appointments = @client.appointments
+            @appointment = current_concierge.appointments.build
+        else
+            @appointments = current_concierge.appointments.select { |a| a.persisted? }
+            @appointment = current_concierge.appointments.build
+        end
     end
 
     def create

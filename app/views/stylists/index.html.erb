@@ -3,7 +3,7 @@
     <h4>Select a Stylist to View Appointments</h4>
     <p class="text-black-50 mb-0">
         <% @stylists.each do |s| %>
-            <%= link_to s.name, stylist_appointments_path(s) %><br>
+            <%= link_to s.name, new_stylist_appointment_path(s) %><br>
         <% end %>
     </p>
 
