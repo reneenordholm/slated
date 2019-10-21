@@ -64,10 +64,6 @@ class StylistsController < ApplicationController
         redirect_to appointments_path
     end
 
-    def most_booked
-        @most_booked = Stylist.most_booked
-    end
-
     private
 
         def stylist_params
