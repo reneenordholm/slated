@@ -1,4 +1,4 @@
-<%= render partial: "a_head" %>
+<%= render partial: "shared/head" %>
           
   <% if !@stylist.nil? %>
     <h4>Book an Appointment with <%= @stylist.name %></h4>
@@ -11,7 +11,7 @@
     <%= render partial: "form", locals: { appointment: @appointment } %>
   </p>
 
-<%= render partial: "a_foot" %>
+<%= render partial: "shared/foot" %>
 
 
 

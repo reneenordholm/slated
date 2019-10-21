@@ -1,3 +1,5 @@
+<br><%= render partial: "c_errors" %>
+
 <%= form_with model: @client, local: true do |f| %>
     <%= f.label :name, "Cient Name: " %>
     <%= f.text_field :name %><br><Br>

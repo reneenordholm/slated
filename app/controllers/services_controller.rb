@@ -51,7 +51,7 @@ class ServicesController < ApplicationController
                 redirect_to service_path(@service)
             else
                 flash[:error] = 'Information not updated.'
-                @redirect_to edit_service_path(@service)
+                redirect_to edit_service_path(@service)
             end
         end
     end

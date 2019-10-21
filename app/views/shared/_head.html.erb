@@ -10,8 +10,8 @@
                 _________________
                 <%= a.start_time.strftime("%l:%M%p") %>-<%= a.end_time.strftime("%l:%M%p") %><br>
                 Client: <%= a.client.name %><br>
-                Service: <%= a.service.name %><br>
-                Stylist: <%= a.stylist.name %><br>
+                Service: <% if !a.service.nil? %><%= a.service.name %><% end %><br>
+                Stylist: <% if !a.stylist.nil? %><%= a.stylist.name %><% end %><br>
                 <%= link_to "View Detail", stylist_appointment_path(a.stylist_id, a) %><br>
             </div>
           <% end %>
@@ -20,4 +20,3 @@
       </div>
       <div class="col-xl-4 col-lg-5">
         <div class="featured-text text-center text-lg-left">
-          <%= render partial: "s_errors" %>

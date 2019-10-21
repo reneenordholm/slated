@@ -1,4 +1,4 @@
- <%= render partial: "c_head" %>
+ <%= render partial: "shared/head" %>
 
   <h4><%= @client.name %>'s Client Appointment History</h4>
   <p class="text-black-50 mb-0">
@@ -14,4 +14,4 @@
       </ul>
       <%= link_to "Book an appointment for #{@client.name}", new_client_appointment_path(@client) %>
 
-<%= render partial: "c_foot" %>
+<%= render partial: "shared/foot" %>

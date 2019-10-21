@@ -61,7 +61,7 @@ class StylistsController < ApplicationController
         set_stylist
         @stylist.destroy 
         flash[:notice] = 'Stylist deleted.'
-        redirect_to stylists_path
+        redirect_to appointments_path
     end
 
     private

@@ -1,3 +1,5 @@
+<br><%= render partial: "s_errors" %>
+
 <%= form_with model: @service, local: true do |f| %>
     <%= f.label :name, "Service Name: " %>
     <%= f.text_field :name %><br><Br>
