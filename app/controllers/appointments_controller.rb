@@ -33,7 +33,7 @@ class AppointmentsController < ApplicationController
             @appointments = @client.appointments
             @appointment = current_concierge.appointments.build
         else
-            @appointments = current_concierge.appointments.select { |a| a.persisted? }
+            @appointments = Appointment.all
             @appointment = current_concierge.appointments.build
         end
     end

@@ -12,7 +12,6 @@ class ClientsController < ApplicationController
 
     def new
         @client = Client.new
-        @stylist = Stylist.find_by(id: params[:stylist_id])
     end
 
     def create

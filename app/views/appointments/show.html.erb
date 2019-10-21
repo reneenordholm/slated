@@ -6,7 +6,7 @@
       Service: <%= @appointment.service.name %> (<%= @appointment.service.description %>)<br>
       Stylist: <% if !@appointment.stylist.nil? %><%= @appointment.stylist.name %><% end %><br>
       Scheduled for: <%= @appointment.start_time.strftime("%b %e, %l:%M %p") %> - <%= @appointment.end_time.strftime("%b %e, %l:%M %p") %><br>
-      <%= link_to "Edit Appointment", edit_stylist_appointment_path(@appointment) %> | 
+      <%= link_to "Edit Appointment", edit_appointment_path(@appointment) %> | 
       <%= link_to 'Delete Appointment', appointment_path(@appointment), method: :delete %>
   </p>
 

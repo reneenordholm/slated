@@ -12,7 +12,7 @@
                 Client: <%= a.client.name %><br>
                 Service: <% if !a.service.nil? %><%= a.service.name %><% end %><br>
                 Stylist: <% if !a.stylist.nil? %><%= a.stylist.name %><% end %><br>
-                <%= link_to "View Detail", stylist_appointment_path(a.stylist_id, a) %><br>
+                <%= link_to "View Detail", appointment_path(a) %><br>
             </div>
           <% end %>
 

@@ -6,9 +6,9 @@
           <% @client.appointments.each do |c| %>
               <li>
               Service: <%= c.service.name %> (<%= c.service.description %>)<br>
-              Stylist: <%= c.stylist.name %><br>
+              Stylist: <% if c.stylist.nil? %><%= c.stylist.name %><% end %><br>
               Scheduled for: <%= c.start_time.strftime("%b %e, %l:%M %p") %> - <%= c.end_time.strftime("%b %e, %l:%M %p") %><br>
-              <%= link_to "View Appointment Detail", stylist_appointment_path(c.client_id, c) %><br>
+              <%= link_to "View Appointment Detail", client_appointment_path(c.client_id, c) %><br>
               </li>
           <% end %>
       </ul>
