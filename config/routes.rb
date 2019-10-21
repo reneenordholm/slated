@@ -19,7 +19,7 @@ Rails.application.routes.draw do
   get '/signin', to: 'sessions#new'
   post '/signin', to: 'sessions#create'
   post '/signout', to: 'sessions#destroy'
-  post '/stylists/:stylist_id/appointments/new', to: 'appointments#create'
+  get '/most_booked', to: 'welcome#most_booked'
 
   get "/auth/:provider/callback", to: "sessions#google_auth"
   get 'auth/failure', to: redirect('/')
