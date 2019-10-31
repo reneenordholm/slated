@@ -3,7 +3,13 @@ class ConciergesController < ApplicationController
     before_action :logged_in?, except: [:new, :create]
 
     def index
-        @concierges = Concierge.all
+        # binding.pry
+        # if params[:search]
+        #     @concierges = Concierge.where("name LIKE ?", "%#{params[:search]}%")
+
+        # else
+            @concierges = Concierge.all
+        # end
     end
 
     def new

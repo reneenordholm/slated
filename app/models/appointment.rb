@@ -6,4 +6,5 @@ class Appointment < ApplicationRecord
 
     validates :start_time, :end_time, presence: true, availability: true, on: :create
 
+
 end

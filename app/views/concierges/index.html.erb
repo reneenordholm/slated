@@ -1,6 +1,11 @@
  <%= render partial: "shared/head" %>
             
-  <h4>Select a Concierge to View Appointments History</h4>
+  <h4>Select a Concierge to View Appointments History</h4><br>
+    <%= form_tag(concierges_path, method: :get) do %>
+        <%= text_field_tag(:search) %>
+        <%= submit_tag("Submit") %>
+    <% end %><br>
+
   <p class="text-black-50 mb-0">
       <% @concierges.each do |c| %>
           <%= link_to c.name, concierge_path(c) %><br>
